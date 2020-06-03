@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ConnectMedia.Common.Model.Template>
+@{
+  ViewData["Title"] = "CreateTemplate";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<h1>Index</h1>
+
+@*<p>
+  <a asp-action="Create">Create New</a>
+</p>*@
+<div class="row mb-3">
+    <div class="offset-10 col-lg-2 col-md-2">
+        <a type="button"
+           class="btn waves-effect waves-light btn-block btn-success" asp-action="Create">Add Template</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="demo-foo-addrow" class="table m-t-0 table-hover contact-list" data-page-size="10">
+
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Title</td>
+                                    <td>@item.Description</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" asp-action="Create" asp-route-Template="@item.Id"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table></div></div></div></div></div>
+
+
+

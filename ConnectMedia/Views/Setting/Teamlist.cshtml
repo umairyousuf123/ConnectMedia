@@ -1,0 +1,45 @@
+﻿@model List<string>
+@{
+  ViewData["Title"] = "Teamlist";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+  int count = 0;
+}
+
+<h1>Teamlist</h1>
+<div class="row mb-3">
+  <div class="offset-10 col-lg-2 col-md-2">
+    <a type="button" class="btn waves-effect waves-light btn-block btn-success" asp-action="AddEmailUser">Add Team User</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table id="demo-foo-addrow" class="table m-t-0 table-hover contact-list" data-page-size="10">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Title</th>
+                <th>Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach (string teamName in Model)
+              {
+                count++;
+                <tr>
+                  <td>@count.ToString()</td>
+                  <td>@teamName.ToString()</td>
+                  <td>
+                    <a class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" asp-action="CSVList" asp-route-tn="@teamName"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+﻿@model ConnectMedia.Models.TemplateViewModel
+
+@{
+  string perform = "Create";
+  if (Model.template.Id > 0) { perform = "Edit"; }
+  ViewData["Title"] = perform + " Setting";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+  <div class="col-md-12">
+    <form asp-action="Create">
+      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      <div class="form-group">
+        <label class="control-label">Title</label>
+        <input type="text" class="form-control" asp-for="template.Title" id="Title" />
+      </div>
+      <div class="form-group">
+        <label class="control-label">Description</label>
+        <input type="text" class="form-control" asp-for="template.Description" id="Description" />
+      </div>
+      <div class="form-group">
+        <label class="control-label">Category</label>
+        <select asp-for="template.CategoryId"
+                asp-items="@(new SelectList(Model.categoryDropdownList,"Value","Text"))"
+                class="form-control">
+          <option>Select category type</option>
+        </select>
+        <span asp-validation-for="template.CategoryId" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Content</label>
+        <textarea type="text" class="form-control ckeditor" asp-for="template.Content" id="Content" rows="5" placeholder="Content"></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+      </div>
+    </form>
+  </div>
+</div>

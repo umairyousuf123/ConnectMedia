@@ -1,0 +1,218 @@
+﻿<!-- ============================================================== -->
+<!-- Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+@{
+  string Role = User.Claims.Where(c => c.Type == "RoleId").Select(c => c.Value).SingleOrDefault();
+  int allowRoleId = !string.IsNullOrEmpty(Role) ? Convert.ToInt32(Role) : 0;
+}
+<aside class="left-sidebar">
+  <!-- Sidebar scroll-->
+  <div class="scroll-sidebar">
+    <!-- User profile -->
+    <div class="user-profile" style="background: url(~/assets/images/background/user-info.jpg) no-repeat;">
+      <!-- User profile image -->
+      <div class="profile-img"> <img src="~/assets/images/users/4.jpg" alt="user" /> </div>
+      <!-- User profile text-->
+      <div class="profile-text">
+        <a href="#" class="dropdown-toggle link u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Markarn Doe <span class="caret"></span></a>
+        <div class="dropdown-menu animated flipInY">
+          <a href="#" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
+          <a href="#" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a>
+          <a href="#" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
+          <div class="dropdown-divider"></div> <a href="#" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
+          <div class="dropdown-divider"></div> <a class="dropdown-item" asp-controller="Authentication" asp-action="LogOut"><i class="fa fa-power-off" as></i> Logout</a>
+        </div>
+      </div>
+    </div>
+    <!-- End User profile text-->
+    <!-- Sidebar navigation-->
+    <nav class="sidebar-nav">
+        <ul id="sidebarnav">
+            <li>
+                <a aria-expanded="false" asp-controller="News" asp-action="Index">
+                    <i class="fa fa-circle"></i>
+                    <span class="hide-menu">Updates</span>
+                </a>
+            </li>
+            <li>
+                <a aria-expanded="false" asp-controller="Notice" asp-action="Index">
+                    <i class="fa fa-circle"></i>
+                    <span class="hide-menu">Notices</span>
+                </a>
+            </li>
+            <li>
+                <a aria-expanded="false" asp-controller="Playlist" asp-action="Index">
+                    <i class="fa fa-circle"></i>
+                    <span class="hide-menu">Playlist</span>
+                </a>
+            </li>
+            <li>
+                <a aria-expanded="false" asp-controller="Classified" asp-action="Index">
+                    <i class="fa fa-circle"></i>
+                    <span class="hide-menu">Classified</span>
+                </a>
+            </li>
+            <li>
+                <a aria-expanded="false" asp-controller="Tutorial" asp-action="Index">
+                    <i class="fa fa-circle"></i>
+                    <span class="hide-menu">Tutorials</span>
+                </a>
+            </li>
+            <li>
+                <a aria-expanded="false" asp-controller="Videos" asp-action="Index">
+                    <i class="fa fa-circle"></i>
+                    <span class="hide-menu">Videos</span>
+                </a>
+            </li>
+            @if (allowRoleId <= 2)
+            {
+                <li>
+                    <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">Setting</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a asp-controller="Category" asp-action="Index">Categories</a></li>
+                        <li><a asp-controller="Building" asp-action="Index">Buildings</a></li>
+                        <li><a asp-controller="Setting" asp-action="Index">Notice Template</a></li>
+                        <li><a asp-controller="Setting" asp-action="UploadCSV">Broadcast Email</a></li>
+                        <li><a asp-controller="Tutorial" asp-action="Tutorials">Upload Tutorial</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a aria-expanded="false" asp-controller="Profile" asp-action="Index">
+                        <i class="fa fa-circle"></i>
+                        <span class="hide-menu">Users</span>
+                    </a>
+                </li>
+            }
+            <!-- <li>
+        <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-map-marker"></i><span class="hide-menu">With Dropdown</span></a>
+        <ul aria-expanded="false" class="collapse">
+            <li><a href="map-google.html">Google Maps</a></li>
+            <li><a href="map-vector.html">Vector Maps</a></li>
+        </ul>
+    </li>
+    <li>
+        <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">Multi level dd</span></a>
+        <ul aria-expanded="false" class="collapse">
+            <li><a href="javascript:void(0)">item 1.1</a></li>
+            <li><a href="javascript:void(0)">item 1.2</a></li>
+            <li>
+                <a class="has-arrow" href="#" aria-expanded="false">Menu 1.3</a>
+                <ul aria-expanded="false" class="collapse">
+                    <li><a href="javascript:void(0)">item 1.3.1</a></li>
+                    <li><a href="javascript:void(0)">item 1.3.2</a></li>
+                    <li><a href="javascript:void(0)">item 1.3.3</a></li>
+                    <li><a href="javascript:void(0)">item 1.3.4</a></li>
+                </ul>
+            </li>
+            <li><a href="#">item 1.4</a></li>
+        </ul>
+    </li> -->
+        </ul>
+    </nav>
+    <!-- End Sidebar navigation -->
+  </div>
+  <!-- End Sidebar scroll-->
+  <!-- Bottom points-->
+  <div class="sidebar-footer">
+    <!-- item-->
+    <a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
+    <!-- item-->
+    <!-- <a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a> -->
+    <!-- item-->
+    <a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
+  </div>
+  <!-- End Bottom points-->
+</aside>
+
+<!-- Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+@*<aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div class="scroll-sidebar">
+          <!-- User profile -->
+          <div class="user-profile" style="background: url(../assets/images/background/user-info.jpg) no-repeat;">
+              <!-- User profile image -->
+              <div class="profile-img"> <img src="../assets/images/users/4.jpg" alt="user" /> </div>
+              <!-- User profile text-->
+              <div class="profile-text">
+                  <a href="#" class="dropdown-toggle link u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Markarn Doe <span class="caret"></span></a>
+                  <div class="dropdown-menu animated flipInY">
+                      <a href="#" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
+                      <a href="#" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a>
+                      <a href="#" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
+                      <div class="dropdown-divider"></div> <a href="#" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
+                      <div class="dropdown-divider"></div> <a href="login.html" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
+                  </div>
+              </div>
+          </div>
+          <!-- End User profile text-->
+          <!-- Sidebar navigation-->
+          <nav class="sidebar-nav">
+              <ul id="sidebarnav">
+                  <!-- <li class="nav-small-cap">PERSONAL</li> -->
+                  <li>
+                      <a href="Connectdashboard.html" aria-expanded="false">
+                          <i class="fa fa-circle"></i>
+                          <span class="hide-menu">Updates</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="Connectdashboard.html?" aria-expanded="false">
+                          <i class="fa fa-circle"></i>
+                          <span class="hide-menu">Notices</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#" aria-expanded="false">
+                          <i class="fa fa-circle"></i>
+                          <span class="hide-menu">Classified</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#" aria-expanded="false">
+                          <i class="fa fa-circle"></i>
+                          <span class="hide-menu">Tutorials</span>
+                      </a>
+                  </li>
+                  <!-- <li>
+                      <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-map-marker"></i><span class="hide-menu">With Dropdown</span></a>
+                      <ul aria-expanded="false" class="collapse">
+                          <li><a href="map-google.html">Google Maps</a></li>
+                          <li><a href="map-vector.html">Vector Maps</a></li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">Multi level dd</span></a>
+                      <ul aria-expanded="false" class="collapse">
+                          <li><a href="javascript:void(0)">item 1.1</a></li>
+                          <li><a href="javascript:void(0)">item 1.2</a></li>
+                          <li>
+                              <a class="has-arrow" href="#" aria-expanded="false">Menu 1.3</a>
+                              <ul aria-expanded="false" class="collapse">
+                                  <li><a href="javascript:void(0)">item 1.3.1</a></li>
+                                  <li><a href="javascript:void(0)">item 1.3.2</a></li>
+                                  <li><a href="javascript:void(0)">item 1.3.3</a></li>
+                                  <li><a href="javascript:void(0)">item 1.3.4</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="#">item 1.4</a></li>
+                      </ul>
+                  </li> -->
+              </ul>
+          </nav>
+          <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+      <!-- Bottom points-->
+      <div class="sidebar-footer">
+          <!-- item-->
+          <a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
+          <!-- item-->
+          <!-- <a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a> -->
+          <!-- item-->
+          <a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
+      </div>
+      <!-- End Bottom points-->
+  </aside>*@
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->

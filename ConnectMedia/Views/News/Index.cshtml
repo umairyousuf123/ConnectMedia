@@ -1,0 +1,62 @@
+﻿@model ConnectMedia.Common.DTO.NewsUpdatesDTO
+@{
+  ViewData["Title"] = "Index";
+}
+
+
+
+<div class="row mb-3">
+  <div class="offset-10 col-lg-2 col-md-2">
+    <a type="button" class="btn waves-effect waves-light btn-block btn-success" asp-action="Create">Create Notice</a>
+  </div>
+</div>
+
+@*<a asp-action="Create">Create New</a>*@
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        Ads Area
+      </div>
+    </div>
+  </div>
+</div>
+@foreach (var item in Model.newsUpdates)
+{
+  <div class="row Update-notice">
+    <div class="postDatewrapper col-md-1 pr-0">
+      <div class="Date">
+        @item.IssueDate.ToString("MMM")
+      </div>
+      <div class="Date">
+        @item.IssueDate.ToString("dd")
+      </div>
+      <div>
+        @item.IssueDate.ToShortTimeString()
+      </div>
+    </div>
+    <div class="col-11 pl-0 Update-notice-content">
+      <!-- Card -->
+      <div class="card">
+        <div class="action-wrapper">
+          <a class="fa fa-pencil" asp-action="Create" asp-route-id="@item.Id"></a>
+          <a class="fa fa-trash" asp-action="Delete" asp-route-id="@item.Id"></a>
+        </div>
+
+        <div class="card-header">
+          @item.Type
+        </div>
+        <div class="card-body">
+          <h4 class="card-title"> @item.Heading,</h4>
+          <div class="card-text">
+            @item.Description
+          </div>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+      </div>
+      <!-- Card -->
+    </div>
+  </div>
+
+}

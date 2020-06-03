@@ -1,0 +1,57 @@
+﻿@model List<ConnectMedia.Common.Model.UploadFile>
+@{
+  ViewData["Title"] = "ViewDocuments";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+  int count = 0;
+}
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table id="demo-foo-addrow" class="table m-t-0 table-hover contact-list" data-page-size="10">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Title</th>
+                <th>Desc</th>
+                <th>Document Type</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach (var item in Model)
+              {
+                count++;
+                <tr>
+                  <td>@count.ToString()</td>
+                  <td>
+                    @item.Title
+                  </td>
+                  <td>@item.Desc</td>
+                  <td>@item.UploadType</td>
+                  <td>
+                    <a class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" asp-action="DownloadFile" asp-route-id="@item.Id"><i class="fa fa-cloud-download" aria-hidden="true"></i></a>
+                    <a class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" asp-action="PreviewFile" asp-route-id="@item.Id"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    @if (@item.UploadType == ConnectMedia.Common.Enum.UploadDocumentType.PDF.ToString())
+                    {
+                      <a class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" asp-action="CreatePdf" asp-route-id="@item.Id"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    }
+                    @if (@item.UploadType == ConnectMedia.Common.Enum.UploadDocumentType.Doc.ToString())
+                    {
+                      <a class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" asp-action="CreateDoc" asp-route-id="@item.Id"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    }
+                    <a class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                 
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
