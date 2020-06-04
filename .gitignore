@@ -338,3 +338,9 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/Startup.cs
+/Program.cs
+/ConnectMedia.csproj
+/appsettings.Development.json
+/.config
+/Properties
