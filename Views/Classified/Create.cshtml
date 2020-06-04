@@ -1,0 +1,94 @@
+﻿@model ConnectMedia.Models.ClassifiedViewModel
+
+@{
+  string perform = "Create";
+  if (Model.classifiedDTO.Id > 0) { perform = "Edit"; }
+  ViewData["Title"] = perform + " Classified";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="Create" class="floating-labelsa m-t-40">
+
+  <div class="row">
+    <div class="text-center col-md-12">
+      <h2>Create New Classified</h2>
+    </div>
+    <div class="col-md-4">
+      @*<div class="form-group m-b-40">
+            <input type="text" class="form-control" id="input1">
+            <span class="bar"></span>
+            <label for="input1">Regular Input</label>
+        </div>*@
+    </div>
+  </div>
+
+
+
+  <div class="row m-t-30">
+    <div class="col-md-4">
+      <div class="card classified-card">
+        <div class="card-body">
+          <div class="form-group">
+            <label class="control-label" asp-for="classifiedDTO.Title ">Title</label>
+            <input type="text" asp-for="classifiedDTO.Title" id="Title" class="form-control">
+          </div>
+          <div class="form-group">
+            <label class="control-label" asp-for="classifiedDTO.Content">Content</label>
+            <textarea type="text" asp-for="classifiedDTO.Content" id="Content" rows="3" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="control-label" asp-for="classifiedDTO.ContactNumber">Phone</label>
+            <input type="text" asp-for="classifiedDTO.ContactNumber" id="ContactNumber" class="form-control">
+          </div>
+          <div class="form-group">
+            <label class="control-label" asp-for="classifiedDTO.Name">Name</label>
+            <input type="text" asp-for="classifiedDTO.Name" id="Name" class="form-control">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input class="form-control" hidden asp-for="classifiedDTO.Id" />
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label" asp-for="classifiedDTO.Start">Start Date</label>
+            <input type="date" asp-for="classifiedDTO.Start" id="Start" class="form-control" placeholder="dd/MM/yyyy">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label" asp-for="classifiedDTO.End">Expiry</label>
+            <input type="date" asp-for="classifiedDTO.End" id="End" class="form-control" placeholder="dd/MM/yyyy">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Playlist</label>
+          <select asp-for="classifiedDTO.PlayList"
+                  asp-items="@(new MultiSelectList(Model.playlistDropdownList,"Value","Text"))"
+                  class="form-control">
+            <option>Select playlist type</option>
+          </select>
+          <span asp-validation-for="classifiedDTO.PlayList" class="text-danger"></span>
+        </div>
+      </div>
+      <div class="form-group">
+        @*<input type="submit" value="Create" class="btn btn-primary" />*@
+        <button type="button" class="btn btn-inverse w-25" asp-action="Index">Back</button>
+        <button type="submit" class="btn btn-success w-25"> <i class="fa fa-check"></i> Save </button>
+      </div>
+    </div>
+
+
+  </div>
+
+</form>
+
+@*<div>
+      <a asp-action="Index">Back to List</a>
+  </div>*@
+
+

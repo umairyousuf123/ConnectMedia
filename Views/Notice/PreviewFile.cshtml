@@ -1,0 +1,9 @@
+﻿@model ConnectMedia.Common.Model.UploadFile
+@{
+  ViewData["Title"] = "PreviewFile";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-12">
+  @Html.Raw(Model.FilePath);
+</div>
+
