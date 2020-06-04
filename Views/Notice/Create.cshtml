@@ -13,27 +13,26 @@
             <div class="form-group">
                 <input asp-for="noticeDTO.Id" class="form-control" hidden />
             </div>
+           
+            
 
 
 
 
-
-
-
+           
 
 
 
 
             <div id="example-basic">
-                <h3>Keyboard</h3>
+                <h3>Notice Message</h3>
                 <section>
                     <div class="form-group">
-                        <label class="control-label">Content</label>
                         <textarea type="text" class="form-control ckeditor" asp-for="noticeDTO.Content" id="Content" rows="5" placeholder="Content"></textarea>
                         <span asp-validation-for="noticeDTO.Content" class="text-danger"></span>
                     </div>
                 </section>
-                <h3>Effects</h3>
+                <h3>Schedule</h3>
                 <section>
                     <div class="form-group">
                         <label class="control-label">Duration(sec)</label>
@@ -44,11 +43,8 @@
                         <label class="control-label">Start</label>
                         <input type="date" class="form-control" asp-for="noticeDTO.StartDate" id="StartDate" />
                         <span asp-validation-for="noticeDTO.StartDate" class="text-danger"></span>
-
                         <input type="time" class="form-control" asp-for="noticeDTO.StartTime" id="StartTime" />
                         <span asp-validation-for="noticeDTO.StartTime" class="text-danger"></span>
-
-
                     </div>
                     <div class="form-group">
                         <label class="control-label">Expire</label>
@@ -72,7 +68,7 @@
                         <span asp-validation-for="noticeDTO.PlayList" class="text-danger"></span>
                     </div>
                 </section>
-                <h3>Pager</h3>
+                <h3>Notice Info</h3>
                 <section>
                     <div class="form-group">
                         <label class="control-label">Category</label>
@@ -90,10 +86,6 @@
                     </div>
 
                 </section>
-            </div>
-            <div class="form-actions">
-                <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                <button type="button" class="btn btn-inverse">Cancel</button>
             </div>
         </form>
     </div>
