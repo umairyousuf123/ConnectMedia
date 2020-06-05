@@ -27,7 +27,7 @@ namespace ConnectMedia.Controllers
         {
             return await Task.Run(() =>
             {
-                return _androidService.UserLogin(new LoginRequestDTO());
+                return _androidService.UserLogin(data);
             });
 
         }
