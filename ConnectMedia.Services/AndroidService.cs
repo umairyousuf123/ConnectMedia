@@ -30,8 +30,6 @@ namespace ConnectMedia.Services
             _logger = logger;
             this._androidRepository = androidRepository;
             this._appSetting = appSetting.Value;
-
-
         }
         public async Task<DataTransferObject<string>> UserLogin(LoginRequestDTO data)
         {
