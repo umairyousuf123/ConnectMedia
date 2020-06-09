@@ -6,33 +6,33 @@
 }
 
 @*<div class="noticePreview">
-    <div class="bg">
-        @Html.Raw(Model.Content);
+        <div class="bg">
+            @Html.Raw(Model.Content);
 
-        @ViewBag.Key;
-    </div>
-</div>*@
+            @ViewBag.Key;
+        </div>
+    </div>*@
 
 
 
 <div class="row adsView ipad">
     <div class="col-md-6 noticePreviewArea">
-       
+
 
 
         <!--Carousel Wrapper-->
-        <div id="carousel-thumb2" class="carousel slide carousel-fade carousel-thumbnails preview-notice-slider" data-ride="carousel">
+        <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails preview-notice-slider" data-ride="carousel">
             <!--Slides-->
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
-                    @Html.Raw(Model.Content)
+                    @Html.Raw(Model.Content);
                     @*<img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(88).jpg"
-                         alt="First slide">*@
+                        alt="First slide">*@
                 </div>
                 <div class="carousel-item">
-                    
-                    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(121).jpg"
-                         alt="Second slide">
+                    2nd slide for test
+                    @*<img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(121).jpg"
+                        alt="Second slide">*@
                 </div>
             </div>
             <!--/.Slides-->
@@ -40,9 +40,9 @@
         <!--/.Carousel Wrapper-->
     </div>
     @*<div class="col-md-6 adminPreviewArea">
-        
 
-    </div>*@
+
+        </div>*@
     <div class="col-md-6 adminPreviewArea">
         <div class="admintopboxes">
             <div class="currentTime">
@@ -51,7 +51,6 @@
             </div>
             <div class="currentWeather">
                 weather
-
             </div>
             <div class="currentDate">
                 date
@@ -63,14 +62,23 @@
                 <!--Slides-->
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
+                        admin videos upload gose here
                         <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(88).jpg"
                              alt="First slide">
                     </div>
                     <div class="carousel-item">
+                        weather api view
                         <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(121).jpg"
                              alt="Second slide">
                     </div>
                     <div class="carousel-item">
+                        Api 3 view
+                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(31).jpg"
+                             alt="Third slide">
+                    </div>
+
+                    <div class="carousel-item">
+                        Api 4 view
                         <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(31).jpg"
                              alt="Third slide">
                     </div>
@@ -95,32 +103,17 @@
                         <div class="icon">
                             <img src="https://mdbootstrap.com/img/Photos/Others/Carousel-thumbs/img%20(31).jpg" width="100">
                         </div>
-                        <h3 class="sm-heading">Weather</h3>
+                        <h3 class="sm-heading">API 3</h3>
+                    </li>
+                    <li data-target="#carousel-thumb" data-slide-to="3">
+                        <div class="icon">
+                            <img src="https://mdbootstrap.com/img/Photos/Others/Carousel-thumbs/img%20(31).jpg" width="100">
+                        </div>
+                        <h3 class="sm-heading">API 4</h3>
                     </li>
                 </ol>
             </div>
             <!--/.Carousel Wrapper-->
         </div>
-        @*<div class="adminbtmboxes">
-            <div class="card col-md-4 mb-0">
-                <div class="icon"></div>
-                <h3 class="sm-heading">Sports</h3>
-            </div>
-            <div class="card col-md-4 mb-0 weatherBtn">
-                <div class="icon"></div>
-                <h3 class="sm-heading">News</h3>
-            </div>
-            <div class="card col-md-4 sportBtn">
-                <div class="icon"></div>
-                <h3 class="sm-heading">Weather</h3>
-            </div>
-            <div class="card col-md-4 mb-0 adminNoticeBtn">
-                <div class="icon"></div>
-                <h3 class="sm-heading">Notice</h3>
-            </div>
-        </div>*@
     </div>
 </div>
-
-
-
