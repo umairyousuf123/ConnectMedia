@@ -1,36 +1,40 @@
 .postDatewrapper {
     text-align: center;
 }
-.postDatewrapper .Date {
-    background: #26c6da;
-    padding: 1rem;
-    color: #fff;
-}
+
+    .postDatewrapper .Date {
+        background: #26c6da;
+        padding: 1rem;
+        color: #fff;
+    }
 
 .Update-notice-content .card {
     border-radius: 0 4px 4px 4px;
     border: 0;
 }
 
-.user-profile .profile-img  {
+.user-profile .profile-img {
     width: 100px;
     margin: 0 auto;
 }
-.user-profile .profile-img::before{
-    width: 100px;
-    height: 100px;
-}
+
+    .user-profile .profile-img::before {
+        width: 100px;
+        height: 100px;
+    }
 
 .left-sidebar .user-profile .profile-text {
     display: none;
 }
+
 .mini-sidebar .user-profile .profile-img {
     width: 50px;
 }
-.mini-sidebar .user-profile .profile-img::before{
-    width: 50px;
-    height: 50px;
-}
+
+    .mini-sidebar .user-profile .profile-img::before {
+        width: 50px;
+        height: 50px;
+    }
 
 .btn-circle.right-side-toggle {
     display: none;
@@ -38,11 +42,13 @@
 
 
 .left-sidebar .user-profile {
-    background: #1c81d9!important;
+    background: #1c81d9 !important;
 }
+
 .left-sidebar, .left-sidebar .sidebar-nav {
     background: #1e88e5;
 }
+
 .sidebar-nav > ul > li, .sidebar-nav > ul > li a, .sidebar-nav > ul > li a i {
     color: #fff;
 }
@@ -63,11 +69,12 @@ a.btn.btn-info.btn-block.text-uppercase.waves-effect.waves-light {
 .card-icon {
     margin-bottom: 1.75rem;
 }
-.card-icon i {
-    font-size: 65px;
-    line-height: 1.5;
-    color: #26c6da5e;
-}
+
+    .card-icon i {
+        font-size: 65px;
+        line-height: 1.5;
+        color: #26c6da5e;
+    }
 
 .action-wrapper {
     text-align: center;
@@ -104,10 +111,11 @@ a.btn.btn-info.btn-block.text-uppercase.waves-effect.waves-light {
         height: 220px;
         object-fit: cover;
     }
+
     .noticePreview h1 {
         margin-bottom: 29px;
     }
-    /*Classified*/
+/*Classified*/
 
 .card.classified-card {
     color: #fff;
@@ -146,7 +154,8 @@ i.fa.fa-toggle-on {
 canvas#pdfViewer {
     width: 100%;
 }
-    .paper {
+
+.paper {
     background: #fff;
     margin-top: 1.5rem;
     box-shadow:
@@ -249,7 +258,7 @@ canvas#pdfViewer {
     background-position: 50% 100%, center;
     transform-origin: bottom center;
     /* margin-left: 2em; */
-    height: 185.8vmin;
+    height: 160.8vmin;
     width: 100%;
     /*line-height: 85.8vmin;*/
     border-width: 3vmin;
@@ -268,6 +277,7 @@ canvas#pdfViewer {
     right: 0;
     display: flex;
 }
+
     .adminbtmboxes .card {
         border: 0;
         padding: 0.5rem 0.5rem;
@@ -280,6 +290,7 @@ canvas#pdfViewer {
         height: 115px;
         justify-content: flex-end;
     }
+
         .adminbtmboxes .card h3.sm-heading {
             margin-bottom: 0;
             font-size: 1.25em;
@@ -306,4 +317,55 @@ canvas#pdfViewer {
     border: 1px solid;
     border-radius: 5px;
     min-height: 160px;
+    height: 93%;
+}
+
+
+/*preview slider*/
+.preview-box-slider .carousel-indicators {
+    height: auto;
+    width: auto;
+    top: 100%;
+}
+
+    .preview-box-slider .carousel-indicators li {
+        height: 110px;
+        width: 100%;
+        display: block;
+        border: 0;
+        padding: 0.5rem 0.5rem;
+        margin: 0 auto;
+        text-align: center;
+        background-color: #E0E5EC;
+        box-shadow: 9px 9px 16px rgba(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
+        background-clip: unset;
+        justify-content: flex-end;
+    }
+
+        .preview-box-slider .carousel-indicators li img {
+            width: 100%;
+            height: auto;
+            display: block;
+
+        }
+        .preview-box-slider .carousel-indicators li h3.sm-heading {
+            width: 100%;
+            display: contents;
+            text-align: center;
+        }
+
+.preview-box-slider .carousel-indicators {
+    width: 100%;
+    top: 100%;
+    margin-top: 11px;
+    background: #26c6da;
+    justify-content: right !important;
+    margin: 0 auto;
+    padding: 0.5rem;
+    position: relative;
+    bottom: 0;
+}
+
+.adminnotice .carousel-inner {
+    height: 107vh;
 }

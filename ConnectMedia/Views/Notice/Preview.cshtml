@@ -6,32 +6,33 @@
 }
 
 @*<div class="noticePreview">
-        <div class="bg">
-            @Html.Raw(Model.Content);
+    <div class="bg">
+        @Html.Raw(Model.Content);
 
-            @ViewBag.Key;
-        </div>
-    </div>*@
+        @ViewBag.Key;
+    </div>
+</div>*@
+
 
 
 <div class="row adsView ipad">
     <div class="col-md-6 noticePreviewArea">
-
+       
 
 
         <!--Carousel Wrapper-->
-        <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails preview-notice-slider" data-ride="carousel">
+        <div id="carousel-thumb2" class="carousel slide carousel-fade carousel-thumbnails preview-notice-slider" data-ride="carousel">
             <!--Slides-->
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
-                    @Html.Raw(Model.Content);
+                    @Html.Raw(Model.Content)
                     @*<img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(88).jpg"
-                        alt="First slide">*@
+                         alt="First slide">*@
                 </div>
                 <div class="carousel-item">
-                    2nd slide for test
-                    @*<img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(121).jpg"
-        alt="Second slide">*@
+                    
+                    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(121).jpg"
+                         alt="Second slide">
                 </div>
             </div>
             <!--/.Slides-->
@@ -39,9 +40,9 @@
         <!--/.Carousel Wrapper-->
     </div>
     @*<div class="col-md-6 adminPreviewArea">
+        
 
-
-        </div>*@
+    </div>*@
     <div class="col-md-6 adminPreviewArea">
         <div class="admintopboxes">
             <div class="currentTime">
@@ -100,5 +101,26 @@
             </div>
             <!--/.Carousel Wrapper-->
         </div>
+        @*<div class="adminbtmboxes">
+            <div class="card col-md-4 mb-0">
+                <div class="icon"></div>
+                <h3 class="sm-heading">Sports</h3>
+            </div>
+            <div class="card col-md-4 mb-0 weatherBtn">
+                <div class="icon"></div>
+                <h3 class="sm-heading">News</h3>
+            </div>
+            <div class="card col-md-4 sportBtn">
+                <div class="icon"></div>
+                <h3 class="sm-heading">Weather</h3>
+            </div>
+            <div class="card col-md-4 mb-0 adminNoticeBtn">
+                <div class="icon"></div>
+                <h3 class="sm-heading">Notice</h3>
+            </div>
+        </div>*@
     </div>
 </div>
+
+
+
