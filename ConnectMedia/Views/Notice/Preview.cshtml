@@ -18,21 +18,20 @@
 <div class="row adsView ipad">
     <div class="col-md-6 noticePreviewArea">
 
-
-
+        @*@Html.Raw(Model.Content);*@
         <!--Carousel Wrapper-->
-        <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails preview-notice-slider" data-ride="carousel">
+        <div id="carousel-thumb2" class="carousel slide carousel-fade carousel-thumbnails preview-notice-slider" data-ride="carousel">
             <!--Slides-->
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
                     @Html.Raw(Model.Content);
                     @*<img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(88).jpg"
-                        alt="First slide">*@
+                    alt="First slide">*@
                 </div>
                 <div class="carousel-item">
                     2nd slide for test
                     @*<img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(121).jpg"
-                        alt="Second slide">*@
+                    alt="Second slide">*@
                 </div>
             </div>
             <!--/.Slides-->

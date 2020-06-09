@@ -233,13 +233,62 @@ canvas#pdfViewer {
     margin-top: 30px;
 }
 
+/*Steps*/
+.horizontal-steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-/*******************************************************************************************************
+    .horizontal-steps .steps {
+        width: 60%;
+        display: flex;
+    }
+
+.step-item {
+    width: calc(100% / 3);
+    position: relative;
+}
+    .step-item * {
+        display: block;
+        text-align: center;
+    }
+    .step-item i {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        background: antiquewhite;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        border-radius: 100px;
+        z-index: 1;
+        position: relative;
+    }
+
+    .step-item:before {
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: red;
+        position: absolute;
+        top: 33%;
+        left: 50%;
+        z-index: 0;
+    }
+
+.steps .step-item:last-child::before {
+    width: 0;
+}
+
+.horizontal-steps .step-btn {
+    width: 20%;
+}
+    /*******************************************************************************************************
     *steps css END*
 ***********************************************************************************************************/
-
-/*Ipad*/
-.ipad {
+    /*Ipad*/
+    .ipad {
     /* display: block; */
     color: #fff;
     text-align: center;
