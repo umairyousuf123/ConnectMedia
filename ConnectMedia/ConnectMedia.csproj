@@ -3774,4 +3774,8 @@
     <ProjectReference Include="..\ConnectMedia.Repository\ConnectMedia.Repository.csproj" />
     <ProjectReference Include="..\ConnectMedia.Services\ConnectMedia.Services.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\css\steps-css\" />
+  </ItemGroup>
 </Project>

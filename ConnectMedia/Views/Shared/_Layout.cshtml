@@ -16,6 +16,10 @@
     <link href="~/css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="~/css/colors/blue.css" id="theme" rel="stylesheet">
+    <link href="~/css/steps-css/normalize.css" rel="stylesheet">
+    <link href="~/css/steps-css/main.css" rel="stylesheet">
+    <link href="~/css/steps-css/jquery.steps.css" rel="stylesheet">
+
     <link href="~/css/connectmedia.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -27,7 +31,7 @@
     <!-- Start of  Zendesk Widget script -->
     <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=1127fd0c-b73e-4d20-8e05-36a36ed244c3"></script>
     <!-- End of  Zendesk Widget script -->
-   
+
 </head>
 <body class="fix-header card-no-border">
 
@@ -100,6 +104,17 @@
         $('.carousel').carousel({
             interval: 100000
         })
+    </script>
+    <!--Steps JavaScript -->
+    <script src="~/js/steps-js/jquery.steps.js"></script>
+    <script>
+        $("#example-basic").steps({
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "slideLeft",
+            autoFocus: true
+        });
+
     </script>
 </body>
 </html>
