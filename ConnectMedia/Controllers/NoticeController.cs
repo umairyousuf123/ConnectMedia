@@ -405,22 +405,6 @@ namespace MaxTVMedia.Controllers
             return View(promotion);
         }
 
-        [HttpGet]
-        public IActionResult PreviewTv(string Key)
-        {
-            NoticeDTO noticeDTO = new NoticeDTO();
-
-
-
-            int UserId = 2;
-            if (UserId > 0)
-            {
-                noticeDTO = _noticeServices.getNoticeDetail(2);
-            }
-            ViewBag.Key = Key;
-            return View("Preview",noticeDTO);
        
-          
-        }
     }
 }

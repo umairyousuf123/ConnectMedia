@@ -57,7 +57,7 @@ namespace ConnectMedia.Controllers
                     building.CreatedBy = getCurrentUserId();
                     building.CreatedOn = DateTime.Now;
                 }
-                building.Key = _buildingService.GeneratePassword(true, true, true, true, 64);
+                building.Key = _buildingService.GeneratePassword(true, true, true, true, 64).Substring(0,4);
                 _buildingService.AddEditBuilding(building);
             }
             return RedirectToAction("Index");
