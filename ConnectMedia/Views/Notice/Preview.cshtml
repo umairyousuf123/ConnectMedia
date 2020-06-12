@@ -20,21 +20,18 @@
 
         @*@Html.Raw(Model.Content);*@
         <!--Carousel Wrapper-->
-        <div id="carousel-thumb2" class="carousel slide carousel-fade carousel-thumbnails preview-notice-slider" data-ride="carousel">
-            <!--Slides-->
-            <div class="carousel-inner" role="listbox">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
                 <div class="carousel-item active">
                     @Html.Raw(Model.Content);
-                    @*<img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(88).jpg"
-                    alt="First slide">*@
                 </div>
                 <div class="carousel-item">
-                    2nd slide for test
-                    @*<img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(121).jpg"
-                    alt="Second slide">*@
+                    <img class="d-block w-100" src="..." alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="..." alt="Third slide">
                 </div>
             </div>
-            <!--/.Slides-->
         </div>
         <!--/.Carousel Wrapper-->
     </div>
