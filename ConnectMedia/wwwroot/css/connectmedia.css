@@ -418,3 +418,31 @@ canvas#pdfViewer {
 .adminnotice .carousel-inner {
     height: 107vh;
 }
+/*scheduler form css*/
+.scheduler-from .form-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .scheduler-from .form-group label.control-label {
+        margin: 0 auto;
+        padding: 0 0.25rem;
+        min-width: 33%;
+    }
+    .scheduler-from .form-group.duration {
+        min-width: 18%;
+    }
+        .scheduler-from .form-group.duration input {
+            max-width: 50%;
+        }
+    .scheduler-from .form-group.col.date-time label.control-label {
+        min-width: 20%;
+    }
+    .scheduler-from .form-group.col.date-time input {
+        width: 45%;
+    }
+
+.wizard > .content > .body{
+    width:100%;
+}
