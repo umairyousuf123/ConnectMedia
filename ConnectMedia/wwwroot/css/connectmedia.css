@@ -442,6 +442,9 @@ canvas#pdfViewer {
     .scheduler-from .form-group.col.date-time input {
         width: 45%;
     }
+    .scheduler-from .form-group.col.expire {
+        max-width: 15%;
+    }
 
 .wizard > .content > .body{
     width:100%;

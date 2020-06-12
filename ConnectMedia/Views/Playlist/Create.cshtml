@@ -34,6 +34,49 @@
                         <button type="button" class="btn btn-inverse">Cancel</button>
                     </div>
 
+
+                    <div class="scheduler-from row mt-5">
+
+                        <div class="form-group col duration">
+                            <label class="control-label">Duration </label>
+                            <input type="number" class="form-control" id="Duration" rows="5" placeholder="60" data-val="true" data-val-required="The Duration field is required." name="noticeDTO.Duration" value="30">
+                            <span class="text-danger field-validation-valid" data-valmsg-for="noticeDTO.Duration" data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="form-group col date-time">
+                            <label class="control-label">Start</label>
+                            <input type="date" class="form-control" id="StartDate" data-val="true" data-val-required="The StartDate field is required." name="noticeDTO.StartDate" value="2020-06-03">
+                            <span class="text-danger field-validation-valid" data-valmsg-for="noticeDTO.StartDate" data-valmsg-replace="true"></span>
+
+                            <input type="time" class="form-control" id="StartTime" data-val="true" data-val-required="The StartTime field is required." name="noticeDTO.StartTime" value="12:15:00">
+                            <span class="text-danger field-validation-valid" data-valmsg-for="noticeDTO.StartTime" data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="form-group col expire">
+                            <label class="control-label">Expire</label>
+                            <input type="checkbox" class="form-control" id="Expire" data-val="true" data-val-required="The Expire field is required." name="noticeDTO.Expire" value="true">
+                        </div>
+                        <div class="form-group col date-time">
+                            <label class="control-label">End</label>
+                            <input type="date" class="form-control" id="EndDate" data-val="true" data-val-required="The EndDate field is required." name="noticeDTO.EndDate" value="2020-06-03">
+                            <span class="text-danger field-validation-valid" data-valmsg-for="noticeDTO.EndDate" data-valmsg-replace="true"></span>
+
+                            <input type="time" class="form-control" id="EndTime" data-val="true" data-val-required="The EndTime field is required." name="noticeDTO.EndTime" value="02:11:00">
+                            <span class="text-danger field-validation-valid" data-valmsg-for="noticeDTO.EndTime" data-valmsg-replace="true"></span>
+
+                        </div>
+
+                        <div class="form-group col-12 playlist">
+                            <label class="control-label">Playlist</label>
+                            <select class="form-control" id="inlineFormCustomSelect" data-val="true" data-val-required="The PlayList field is required." multiple="multiple" name="noticeDTO.PlayList">
+                                <option selected="selected" value="6">scheduler playlist</option>
+                            </select>
+                            <span class="text-danger field-validation-valid" data-valmsg-for="noticeDTO.PlayList" data-valmsg-replace="true"></span>
+                        </div>
+
+                    </div>
+
+
+
+
                 </form>
             </div>
         </div>
