@@ -91,8 +91,16 @@ namespace ConnectMedia.Services
                     fileName = obj.ToString() + extension;
                 }
 
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(), _documentPath.Pdf, fileName);
-                bool isSaved = await SaveFile(filePath, pdfDTO.pdfFile);
+                var path = Path.Combine(
+                            Directory.GetCurrentDirectory(), "wwwroot/Documents",
+                            fileName);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await pdfDTO.pdfFile.CopyToAsync(stream);
+                }
+               
+              //  var filePath = Path.Combine(Directory.GetCurrentDirectory(), _documentPath.Pdf, fileName);
+                bool isSaved = await SaveFile(path, pdfDTO.pdfFile);
                 if (isSaved)
                 {
 
@@ -112,7 +120,7 @@ namespace ConnectMedia.Services
                     _uploadFile.Desc = pdfDTO.Desc;
                     _uploadFile.UploadType = UploadDocumentType.PDF.ToString();
                     _uploadFile.FileName = fileName;
-                    _uploadFile.FilePath = filePath;
+                    _uploadFile.FilePath = path;
 
                     ErrorMessage = _noticeRepository.UploadFileDetail(_uploadFile);
                 }
@@ -141,8 +149,15 @@ namespace ConnectMedia.Services
                     string extension = Path.GetExtension(docDTO.docFile.FileName);
                     fileName = obj.ToString() + extension;
                 }
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(), _documentPath.WordDocument, fileName);
-                bool isSaved = await SaveFile(filePath, docDTO.docFile);
+                var path = Path.Combine(
+                            Directory.GetCurrentDirectory(), "wwwroot/Documents",
+                            fileName);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await docDTO.docFile.CopyToAsync(stream);
+                }
+               // var filePath = Path.Combine(Directory.GetCurrentDirectory(), _documentPath.WordDocument, fileName);
+                bool isSaved = await SaveFile(path, docDTO.docFile);
                 if (isSaved)
                 {
 
@@ -162,7 +177,7 @@ namespace ConnectMedia.Services
                     _uploadFile.Desc = docDTO.Desc;
                     _uploadFile.UploadType = UploadDocumentType.Doc.ToString();
                     _uploadFile.FileName = docDTO.docFile.FileName;
-                    _uploadFile.FilePath = filePath;
+                    _uploadFile.FilePath = path;
                     ErrorMessage = _noticeRepository.UploadFileDetail(_uploadFile);
                 }
             }

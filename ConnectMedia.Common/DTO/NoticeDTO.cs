@@ -47,6 +47,13 @@ namespace ConnectMedia.Common.DTO
         public IFormFile pdfFile { get; set; }
         public string Desc { get; set; }
         public int enteryBy { get; set; }
+
+        public DateTime StartDate { get; set; }
+
+        public DateTime EndDate { get; set; }
+
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
     }
     public class DocDTO
     {
@@ -57,6 +64,13 @@ namespace ConnectMedia.Common.DTO
         public IFormFile docFile { get; set; }
         public string Desc { get; set; }
         public int enteryBy { get; set; }
+
+        public DateTime StartDate { get; set; }
+
+        public DateTime EndDate { get; set; }
+
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
     }
 
     public class GetRunningNoticeClassifiedDTO

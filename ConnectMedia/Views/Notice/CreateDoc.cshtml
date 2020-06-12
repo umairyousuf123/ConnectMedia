@@ -10,30 +10,48 @@
         <h4 class="m-b-0 text-white">Create Doc</h4>
       </div>
       <div class="card-body">
-        <form asp-action="CreateDoc" method="post" enctype="multipart/form-data">
+          <form asp-action="CreateDoc" method="post" enctype="multipart/form-data">
 
-          <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-          <div class="form-group">
-            <label asp-for="Title" class="control-label"></label>
-            <input asp-for="Title" class="form-control" />
-            <span asp-validation-for="Title" class="text-danger"></span>
-          </div>
-          <div class="form-group">
-            <label asp-for="Desc" class="control-label"></label>
-            <input asp-for="Desc" class="form-control" />
-            <span asp-validation-for="Desc" class="text-danger"></span>
-          </div>
-          <div class="form-group">
-            <div class="col-md-10">
-              <p>Upload Word File: </p>
-              <input type="file" asp-for="docFile" class="form-control" id="docment" />
-              <span asp-validation-for="docFile" class="text-danger"></span>
-            </div>
-          </div>
-          <div class="form-group">
-            <input type="submit" value="Create" class="btn btn-primary" />
-          </div>
-        </form>
+              <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+              <div class="form-group">
+                  <label asp-for="Title" class="control-label"></label>
+                  <input asp-for="Title" class="form-control" />
+                  <span asp-validation-for="Title" class="text-danger"></span>
+              </div>
+              <div class="form-group">
+                  <label asp-for="Desc" class="control-label"></label>
+                  <input asp-for="Desc" class="form-control" />
+                  <span asp-validation-for="Desc" class="text-danger"></span>
+              </div>
+              <div class="form-group">
+                  <div class="col-md-10">
+                      <p>Upload Word File: </p>
+                      <input type="file" asp-for="docFile" class="form-control" id="docment" />
+                      <span asp-validation-for="docFile" class="text-danger"></span>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label">Start</label>
+                  <input type="date" class="form-control" asp-for="StartDate" id="StartDate" />
+                  <span asp-validation-for="StartDate" class="text-danger"></span>
+
+                  <input type="time" class="form-control" asp-for="StartTime" id="StartTime" />
+                  <span asp-validation-for="StartTime" class="text-danger"></span>
+              </div>
+
+              <div class="form-group">
+                  <label class="control-label">End</label>
+                  <input type="date" class="form-control" asp-for="EndDate" id="EndDate" />
+                  <span asp-validation-for="EndDate" class="text-danger"></span>
+
+                  <input type="time" class="form-control" asp-for="EndTime" id="EndTime" />
+                  <span asp-validation-for="EndTime" class="text-danger"></span>
+
+              </div>
+              <div class="form-group">
+                  <input type="submit" value="Create" class="btn btn-primary" />
+              </div>
+          </form>
       </div>
     </div>
   </div>
