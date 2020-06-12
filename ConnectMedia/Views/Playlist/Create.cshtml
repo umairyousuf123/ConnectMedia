@@ -1,41 +1,275 @@
 ﻿@model ConnectMedia.Models.PlaylistViewModel
 
 @{
-  ViewData["Title"] = "Create";
-  Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-  <div class="row">
+<div class="row">
     <div class="col-lg-12">
-      <div class="card card-outline-info">
-        <div class="card-header">
-          <h4 class="m-b-0 text-white">Create Playlist</h4>
-        </div>
-        <div class="card-body">
-          <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input class="form-control" hidden asp-for="playlistDTO.Id" />
+        <div class="card card-outline-info">
+            <div class="card-header">
+                <h4 class="m-b-0 text-white">Create Playlist</h4>
+            </div>
+            <div class="card-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input class="form-control" hidden asp-for="playlistDTO.Id" />
 
-            <div class="form-group">
-              <label asp-for="playlistDTO.Name" class="control-label"></label>
-              <input asp-for="playlistDTO.Name" class="form-control" />
-              <span asp-validation-for="playlistDTO.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-              <label class="control-label">Role</label>
-              <select asp-for="playlistDTO.BuildingId"
-                      asp-items="@(new SelectList(Model.BuildingDropdownList,"Value","Text"))"
-                      class="form-control">
-                <option>Select Building</option>
-              </select>
-              <span asp-validation-for="playlistDTO.BuildingId" class="text-danger"></span>
-            </div>
-            <div class="form-actions">
-              <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Add Playlist</button>
-              <button type="button" class="btn btn-inverse">Cancel</button>
-            </div>
+                    <div class="form-group">
+                        <label asp-for="playlistDTO.Name" class="control-label"></label>
+                        <input asp-for="playlistDTO.Name" class="form-control" />
+                        <span asp-validation-for="playlistDTO.Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Role</label>
+                        <select asp-for="playlistDTO.BuildingId"
+                                asp-items="@(new SelectList(Model.BuildingDropdownList,"Value","Text"))"
+                                class="form-control">
+                            <option>Select Building</option>
+                        </select>
+                        <span asp-validation-for="playlistDTO.BuildingId" class="text-danger"></span>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Add Playlist</button>
+                        <button type="button" class="btn btn-inverse">Cancel</button>
+                    </div>
 
-          </form>
+
+                    <div class="scheduler-from row mt-5">
+
+                        <div class="form-group col duration">
+                            <label class="control-label">Duration </label>
+                            <input type="number" class="form-control" id="Duration" rows="5" placeholder="60" data-val="true" data-val-required="The Duration field is required." name="noticeDTO.Duration" value="30">
+                            <span class="text-danger field-validation-valid" data-valmsg-for="noticeDTO.Duration" data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="form-group col date-time">
+                            <label class="control-label">Start</label>
+                            <input type="date" class="form-control" id="StartDate" data-val="true" data-val-required="The StartDate field is required." name="noticeDTO.StartDate" value="2020-06-03">
+                            <span class="text-danger field-validation-valid" data-valmsg-for="noticeDTO.StartDate" data-valmsg-replace="true"></span>
+
+                            <input type="time" class="form-control" id="StartTime" data-val="true" data-val-required="The StartTime field is required." name="noticeDTO.StartTime" value="12:15:00">
+                            <span class="text-danger field-validation-valid" data-valmsg-for="noticeDTO.StartTime" data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="form-group col expire">
+                            <label class="control-label">Expire</label>
+                            <input type="checkbox" class="form-control" id="Expire" data-val="true" data-val-required="The Expire field is required." name="noticeDTO.Expire" value="true">
+                        </div>
+                        <div class="form-group col date-time">
+                            <label class="control-label">End</label>
+                            <input type="date" class="form-control" id="EndDate" data-val="true" data-val-required="The EndDate field is required." name="noticeDTO.EndDate" value="2020-06-03">
+                            <span class="text-danger field-validation-valid" data-valmsg-for="noticeDTO.EndDate" data-valmsg-replace="true"></span>
+
+                            <input type="time" class="form-control" id="EndTime" data-val="true" data-val-required="The EndTime field is required." name="noticeDTO.EndTime" value="02:11:00">
+                            <span class="text-danger field-validation-valid" data-valmsg-for="noticeDTO.EndTime" data-valmsg-replace="true"></span>
+
+                        </div>
+
+                        <div class="form-group col-12 playlist">
+                            <label class="control-label">Playlist</label>
+                            <select class="form-control" id="inlineFormCustomSelect" data-val="true" data-val-required="The PlayList field is required." multiple="multiple" name="noticeDTO.PlayList">
+                                <option selected="selected" value="6">scheduler playlist</option>
+                            </select>
+                            <span class="text-danger field-validation-valid" data-valmsg-for="noticeDTO.PlayList" data-valmsg-replace="true"></span>
+                        </div>
+
+                    </div>
+
+
+
+
+                </form>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
+
+<div class="adv-scheduler-btn">
+    <a href="javascript:void(0)" id="show-scheduler">Advance Scheduler</a>
+</div>
+<div class="adv-scheduler-sec">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="heading">
+                <h4>Hours</h4>
+                <a href="javascript:void(0)">Select All</a>
+            </div>
+            <div class="form-group am-time">
+                <div class="c-inputs-stacked">
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">1AM</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">2AM</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">3AM</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">4Am</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">5AM</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">6AM</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">7AM</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">8Am</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">9Am</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">10Am</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="heading">
+                <h4>Days</h4>
+                <a href="javascript:void(0)">Select All</a>
+            </div>
+            <div class="form-group adv-days">
+                <div class="c-inputs-stacked">
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">Monday</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">Tuesday</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">Wednisday</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">Thursday</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">Friday</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">Saturtday</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">Sunday</span>
+                    </label>
+                </div>
+                </div>
+                </div>
+        <div class="col-md-3">
+            <div class="heading">
+                <h4>Weeks</h4>
+                <a href="javascript:void(0)">Select All</a>
+            </div>
+            <div class="form-group adv-days">
+                <div class="c-inputs-stacked">
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">First</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">Second</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">Third</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">Fourth</span>
+                    </label>
+                </div>
+                </div>
+                </div>
+        <div class="col-md-3">
+            <div class="heading">
+                <h4>Month</h4>
+                <a href="javascript:void(0)">Select All</a>
+            </div>
+            <div class="form-group adv-days">
+                <div class="c-inputs-stacked">
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">January</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">Feb</span>
+                    </label> 
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">March</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">April</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">May</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">June</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">July</span>
+                    </label>
+                    <label class="inline custom-control custom-checkbox block">
+                        <input type="checkbox" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description ml-0">August</span>
+                    </label>
+                </div>
+            </div>
+        </div>
