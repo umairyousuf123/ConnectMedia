@@ -12,13 +12,16 @@
     <!-- Bootstrap Core CSS -->
     <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/assets/plugins/prism/prism.css" rel="stylesheet">
+    <link href="~/assets/plugins/wizard/steps.css" rel="stylesheet">
+    <!--alerts CSS -->
+    <link href="~/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
     <!-- Custom CSS -->
     <link href="~/css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="~/css/colors/blue.css" id="theme" rel="stylesheet">
-    <link href="~/css/steps-css/normalize.css" rel="stylesheet">
-    <link href="~/css/steps-css/main.css" rel="stylesheet">
-    <link href="~/css/steps-css/jquery.steps.css" rel="stylesheet">
+    @*<link href="~/css/steps-css/normalize.css" rel="stylesheet">
+        <link href="~/css/steps-css/main.css" rel="stylesheet">
+        <link href="~/css/steps-css/jquery.steps.css" rel="stylesheet">*@
 
     <link href="~/css/connectmedia.css" rel="stylesheet">
 
@@ -100,21 +103,47 @@
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="~/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+
+    <script src="~/assets/plugins/wizard/jquery.steps.min.js"></script>
+    <script src="~/assets/plugins/wizard/jquery.validate.min.js"></script>
+    <!-- Sweet-Alert  -->
+    <script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="~/assets/plugins/wizard/steps.js"></script>
+    <!-- wysuhtml5 Plugin JavaScript -->
+    <script src="~/assets/plugins/tinymce/tinymce.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            if ($("#mymce").length > 0) {
+                tinymce.init({
+                    selector: "textarea#mymce",
+                    theme: "modern",
+                    height: 300,
+                    plugins: [
+                        "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+                        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                        "save table contextmenu directionality emoticons template paste textcolor"
+                    ],
+                    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
+
+                });
+            }
+        });
+    </script>
     <script>
         $('.carousel').carousel({
-            interval: 100000
+            interval: 3000
         })
     </script>
     <!--Steps JavaScript -->
-    <script src="~/js/steps-js/jquery.steps.js"></script>
-    <script>
-        $("#example-basic").steps({
-            headerTag: "h3",
-            bodyTag: "section",
-            transitionEffect: "slideLeft",
-            autoFocus: true
-        });
-
-    </script>
+    @*<script src="~/js/steps-js/jquery.steps.js"></script>*@
+    @*<script>
+            $("#example-basic").steps({
+                headerTag: "h3",
+                bodyTag: "section",
+                transitionEffect: "slideLeft",
+                autoFocus: true
+            });
+        </script>*@
 </body>
 </html>

@@ -446,3 +446,23 @@ canvas#pdfViewer {
 .wizard > .content > .body{
     width:100%;
 }
+
+
+/*Advance scheduler*/
+
+.adv-scheduler-sec .heading {
+    display: flex;
+}
+    .adv-scheduler-sec .heading * {
+        min-width: 50%;
+    }
+.adv-scheduler-sec .heading a {
+    text-align: right;
+}
+
+.adv-scheduler-sec label.custom-checkbox.block {
+    min-width: 40%;
+}
+.adv-scheduler-sec .col-md-3 {
+    border-right: 2px solid #dedcdc;
+}
