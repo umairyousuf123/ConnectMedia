@@ -27,8 +27,10 @@ namespace ConnectMedia.Repository
         {
             List<PlaylistGridView> playlistGridViews = new List<PlaylistGridView>();
             int roleid = _db.Users.Where(x => x.Id == UserId).FirstOrDefault().roleId;
-
-            List<Building> buildings = _db.Building.Where(t => t.IsDel == false).ToList();
+            List<Building> buildings = null;
+            
+                buildings = _db.Building.Where(t => t.IsDel == false).ToList();
+        
 
             if (roleid <= AllowRole)
             {
@@ -53,11 +55,24 @@ namespace ConnectMedia.Repository
                                      {
                                          Id = P.Id,
                                          PlaylistName = P.Name,
-                                         BuildingName = getBuildingName(P.Id, buildings, playlistBuildings)
+                                         BuildingName = getBuildingName(P.Id, buildings, playlistBuildings),
+
                                      }).ToList();
             }
 
             return playlistGridViews;
+        }
+
+        public List<PlaylistBuilding> GetPlaylistBuildings(int userId, string key)
+        {
+            string buildingid = _db.Users.Where(x => x.Id == userId).FirstOrDefault().BuildingIds;
+            List<int> buildingIds= buildingid.Split(',').Select(int.Parse).ToList();
+            List<PlaylistBuilding> playlistBuildings = (from a in _db.PlaylistBuilding
+                                                        join b in _db.Building.Where(x=> buildingIds.Contains(x.Id))
+                                                        on a.BuildingId equals b.Id
+                                                        where b.Key == key
+                                                        select a)?.ToList();
+            return playlistBuildings;
         }
         public PlaylistDTO GetPlaylist(int id)
         {

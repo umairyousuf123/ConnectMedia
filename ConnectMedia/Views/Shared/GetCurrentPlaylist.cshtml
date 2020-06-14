@@ -1,11 +1,65 @@
 ﻿@using Newtonsoft.Json;
 @model List<ConnectMedia.Common.DTO.GetRunningNoticeClassifiedDTO>
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+
 @{
+    string isActive = "active";
+    <div class="col-md-6 noticePreviewArea1">
 
-    string json = JsonConvert.SerializeObject(@Model, Formatting.Indented);
-    <p>@json</p>
+
+        <!--Carousel Wrapper-->
+        <div id="carouselExampleSlidesOnly1" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @foreach (var item in Model)
+                {
+                    @foreach (var item1 in item.Notices)
+                    {
+                        <div class="carousel-item @isActive">
+                            @Html.Raw(item1.Content)
+                        </div>
+                        isActive = "";
+
+                    }
+                    @foreach (var item2 in item.Classifieds)
+                    {
+
+                        <div class="carousel-item @isActive">
+                            @Html.Raw(item2.Content)
+                        </div>
+                                                isActive = "";
+   }
+                }
+
+            </div>
+        </div>
+        <!--/.Carousel Wrapper-->
+    </div>
+
 }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function(){
+    function RefreshPartial(){
+        //this will wait 3 seconds and then fire the load partial function
+        setTimeout(function(){
+            loadPartialView();
+            //recall this function so that it will continue to loop
+            RefreshPartial();
+        }, 120000);
+    }
+    //initialize the loop
+    RefreshPartial();
+    });
+    function loadPartialView() {
+        $.ajax({
+    url: '@Url.Action("GetData", "WebView")',
+    type: 'get',
+    cache: false,
+    async: true,
+            success: function (result) {
+                debugger;
+    $('#carouselExampleSlidesOnly').html(result);
+    }
+    });
+    }
 
+</script>

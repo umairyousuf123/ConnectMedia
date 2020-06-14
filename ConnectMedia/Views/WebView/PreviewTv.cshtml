@@ -1,4 +1,4 @@
-﻿@model ConnectMedia.Common.DTO.NoticeDTO
+﻿@model List<ConnectMedia.Common.DTO.GetRunningNoticeClassifiedDTO>
 
 
 @{
@@ -15,11 +15,12 @@
 
 
 <div class="row adsView ipad">
+
     <div class="col-md-6 noticePreviewArea">
 
-
+        @Html.Partial("GetCurrentPlaylist", Model);
         <!--Carousel Wrapper-->
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        @*<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     @Html.Raw(Model.Content);
@@ -31,7 +32,7 @@
                     <img class="d-block w-100" src="..." alt="Third slide">
                 </div>
             </div>
-        </div>
+        </div>*@
         <!--/.Carousel Wrapper-->
     </div>
     @*<div class="col-md-6 adminPreviewArea">
@@ -53,25 +54,32 @@
         </div>
         <div class="adminnotice">
             <!--Carousel Wrapper-->
-            <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails preview-box-slider" data-ride="carousel">
+            <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails preview-box-slider">
                 <!--Slides-->
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
-                        admin videos upload gose here
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(88).jpg"
-                             alt="First slide">
+                        <iframe width="560"
+                                height="315"
+                                src="@ViewBag.CurrrentNotice"
+                                frameborder="0"
+                                allowfullscreen></iframe>
                     </div>
                     <div class="carousel-item">
                         weather api view
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(121).jpg"
-                             alt="Second slide">
+                        @*<img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(121).jpg"
+                            alt="Second slide">*@
+
+                        <a class="weatherwidget-io" href="https://forecast7.com/en/51d25n85d32/ontario/" data-label_1="ONTARIO" data-label_2="WEATHER" data-mode="Current" data-days="3" data-theme="original">ONTARIO WEATHER</a>
+                        <script>
+                            !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+                        </script>
                     </div>
                     <div class="carousel-item">
                         Api 3 view
                         <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(31).jpg"
                              alt="Third slide">
                     </div>
-                    
+
                     <div class="carousel-item">
                         Api 4 view
                         <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(31).jpg"

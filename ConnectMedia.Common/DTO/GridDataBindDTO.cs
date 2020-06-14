@@ -47,6 +47,7 @@ namespace ConnectMedia.Common.DTO
         public int Id { get; set; }
         public string PlaylistName { get; set; }
         public string BuildingName { get; set; }
+
     }
     public class NoticeSendEmail
     {

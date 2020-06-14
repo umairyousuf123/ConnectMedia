@@ -25,6 +25,12 @@ namespace ConnectMedia.Services
             List<PlaylistGridView> playlistGrid = _playlistRepository.GetAllPlaylist(Userid);
             return playlistGrid;
         }
+
+        public List<PlaylistBuilding> GetPlayListBuilding(int Userid, string key = "")
+        {
+            List<PlaylistBuilding> playlistBuilding = _playlistRepository.GetPlaylistBuildings(Userid, key);
+            return playlistBuilding;
+        }
         public PlaylistDTO GetPlaylist(int Id)
         {
             PlaylistDTO playlist = _playlistRepository.GetPlaylist(Id);

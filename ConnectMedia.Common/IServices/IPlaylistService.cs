@@ -7,6 +7,9 @@ namespace ConnectMedia.Common.IServices
     public interface IPlaylistService
     {
         List<PlaylistGridView> GetAllPlaylist(int UserId);
+
+        List<PlaylistBuilding> GetPlayListBuilding(int Userid, string key = "");
+
         PlaylistDTO GetPlaylist(int UserId);
         string AddEditPlaylist(PlaylistDTO playlist);
         bool Delete(int id, int CurrentUserId);

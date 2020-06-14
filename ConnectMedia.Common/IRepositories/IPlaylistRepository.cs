@@ -7,6 +7,9 @@ namespace ConnectMedia.Common.IRepositories
     public interface IPlaylistRepository
     {
         List<PlaylistGridView> GetAllPlaylist(int Userid);
+
+        List<PlaylistBuilding> GetPlaylistBuildings(int userId, string key);
+
         PlaylistDTO GetPlaylist(int Userid);
         string AddEditPlaylist(PlaylistDTO playlist);
         bool Delete(int id, int CurrentUserId);
@@ -27,5 +30,7 @@ namespace ConnectMedia.Common.IRepositories
 
         List<RunningNoticeClassified> GetRunningNoticeClassified(int playlistId);
         List<NoticeDTO> PreviewPlaylistNotice(int playlistId);
+
+
     }
 }
