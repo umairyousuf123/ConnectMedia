@@ -11,5 +11,7 @@ namespace ConnectMedia.Common.Model
         public string Name { get; set; }
 
         public string FileName { get; set; }
+
+        public DateTime Date { get; set; }
     }
 }

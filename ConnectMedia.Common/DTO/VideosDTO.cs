@@ -15,5 +15,7 @@ namespace ConnectMedia.Common.DTO
         public string FileName { get; set; }
 
         public IFormFile file { get; set; }
+
+        public DateTime Date { get; set; }
     }
 }

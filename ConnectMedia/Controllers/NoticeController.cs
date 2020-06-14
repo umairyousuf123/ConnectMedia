@@ -25,17 +25,19 @@ namespace MaxTVMedia.Controllers
 
         readonly INoticeService _noticeServices;
         IPlaylistService _playlistService;
+        IVideosService _videoService;
         readonly ISettingService _settingService;
         readonly ILogger<NoticeController> _logger;
         readonly IClassifiedService _classifiedServices;
         public NoticeController(ILogger<NoticeController> logger, INoticeService noticeServices, ISettingService settingService,
-            IPlaylistService playlistService, IClassifiedService classifiedServices)
+            IPlaylistService playlistService, IClassifiedService classifiedServices, IVideosService videoService)
         {
             _logger = logger;
             this._settingService = settingService;
             this._noticeServices = noticeServices;
             this._playlistService = playlistService;
             this._classifiedServices = classifiedServices;
+            this._videoService = videoService;
         }
         public async Task<IActionResult> Index()
         {
@@ -283,11 +285,13 @@ namespace MaxTVMedia.Controllers
         [HttpGet]
         public IActionResult Preview(int id)
         {
+           
             NoticeDTO noticeDTO = new NoticeDTO();
             int UserId = id;
             if (UserId > 0)
             {
                 noticeDTO = _noticeServices.getNoticeDetail(UserId);
+                ViewBag.CurrrentNotice = _videoService.GetAllVideos().Where(x => x.Date.ToShortDateString() == DateTime.UtcNow.ToShortDateString())?.Select(x=>x.FileName).FirstOrDefault();
             }
 
             return View(noticeDTO);
