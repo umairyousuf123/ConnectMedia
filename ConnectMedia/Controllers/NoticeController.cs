@@ -233,7 +233,7 @@ namespace MaxTVMedia.Controllers
             if (UserId > 0)
             {
                 noticeDTO = _noticeServices.getNoticeDetail(UserId);
-                ViewBag.CurrrentNotice = _videoService.GetAllVideos().Where(x => x.Date.ToShortDateString() == DateTime.UtcNow.ToShortDateString())?.Select(x=>x.FileName).FirstOrDefault();
+                ViewBag.CurrrentNotice = _videoService.GetAllVideos()?.Where(x => x.Date.ToShortDateString() == DateTime.UtcNow.ToShortDateString())?.Select(x=>x.FileName)?.FirstOrDefault();
             }
 
             return View(noticeDTO);

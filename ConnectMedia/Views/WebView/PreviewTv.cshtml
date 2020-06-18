@@ -57,17 +57,20 @@
             <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails preview-box-slider">
                 <!--Slides-->
                 <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
-                        <iframe width="560"
-                                height="315"
-                                src="@ViewBag.CurrrentNotice"
-                                frameborder="0"
-                                allowfullscreen></iframe>
-                    </div>
+                    @if (ViewBag.CurrrentNotice != null || ViewBag.CurrrentNotice != "")
+                    {
+                        <div class="carousel-item active">
+                            <iframe width="560"
+                                    height="315"
+                                    src="@ViewBag.CurrrentNotice"
+                                    frameborder="0"
+                                    allowfullscreen></iframe>
+                        </div>
+                    }
                     <div class="carousel-item">
                         weather api view
                         @*<img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(121).jpg"
-                            alt="Second slide">*@
+            alt="Second slide">*@
 
                         <a class="weatherwidget-io" href="https://forecast7.com/en/51d25n85d32/ontario/" data-label_1="ONTARIO" data-label_2="WEATHER" data-mode="Current" data-days="3" data-theme="original">ONTARIO WEATHER</a>
                         <script>

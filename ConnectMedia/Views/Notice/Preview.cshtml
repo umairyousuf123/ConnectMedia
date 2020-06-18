@@ -57,6 +57,8 @@
             <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails preview-box-slider" >
                 <!--Slides-->
                 <div class="carousel-inner" role="listbox">
+                    @if (ViewBag.CurrrentNotice != null || ViewBag.CurrrentNotice != "")
+                    {
                     <div class="carousel-item active">                   
                         <iframe width="560"
                                 height="315"
@@ -64,6 +66,7 @@
                                 frameborder="0"
                                 allowfullscreen></iframe>
                     </div>
+                    }
                     <div class="carousel-item">
                         weather api view
                         @*<img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(121).jpg"
