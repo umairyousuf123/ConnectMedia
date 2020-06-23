@@ -6,102 +6,334 @@
     ViewData["Title"] = perform + " Notice";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="row">
-    <div class="col-md-12">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <input asp-for="noticeDTO.Id" class="form-control" hidden />
+@*<div class="row">
+        <div class="col-md-12">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <input asp-for="noticeDTO.Id" class="form-control" hidden />
+                </div>
+
+                <div id="example-basic">
+
+                    <h3>Schedule</h3>
+                    <section class="schedule-step">
+                        <div class="scheduler-from row">
+                            <div class="form-group col duration">
+                                <label class="control-label">Duration(sec)</label>
+                                <input type="number" class="form-control" asp-for="noticeDTO.Duration" id="Duration" rows="5" placeholder="60" />
+                                <span asp-validation-for="noticeDTO.Duration" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col date-time">
+                                <label class="control-label">Start</label>
+                                <input type="date" class="form-control" asp-for="noticeDTO.StartDate" id="StartDate" />
+                                <span asp-validation-for="noticeDTO.StartDate" class="text-danger"></span>
+
+                                <input type="time" class="form-control" asp-for="noticeDTO.StartTime" id="StartTime" />
+                                <span asp-validation-for="noticeDTO.StartTime" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col expire">
+                                <label class="control-label">Expire</label>
+                                <input type="checkbox" class="form-control" asp-for="noticeDTO.Expire" id="Expire" />
+                            </div>
+                            <div class="form-group col date-time">
+                                <label class="control-label">End</label>
+                                <input type="date" class="form-control" asp-for="noticeDTO.EndDate" id="EndDate" />
+                                <span asp-validation-for="noticeDTO.EndDate" class="text-danger"></span>
+
+                                <input type="time" class="form-control" asp-for="noticeDTO.EndTime" id="EndTime" />
+                                <span asp-validation-for="noticeDTO.EndTime" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group col-12 playlist">
+                                <label class="control-label">Playlist</label>
+                                <select asp-for="noticeDTO.PlayList"
+                                        asp-items="@(new MultiSelectList(Model.playlistDropdownList,"Value","Text"))"
+                                        class="form-control" id="inlineFormCustomSelect">
+                                    <option selected="">Select playlist type</option>
+                                </select>
+                                <span asp-validation-for="noticeDTO.PlayList" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                    </section>
+                    <h3>Notice Info</h3>
+                    <section class="save-step">
+                        <div class="form-group">
+                            <label asp-for="noticeDTO.Name " class="control-label"></label>
+                            <input asp-for="noticeDTO.Name" class="form-control" />
+                            <span asp-validation-for="noticeDTO.Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Category</label>
+                            <select asp-for="noticeDTO.CategoryId"
+                                    asp-items="@(new SelectList(Model.categoryDropdownList,"Value","Text"))"
+                                    class="form-control">
+                                <option selected="">Select category type</option>
+                            </select>
+                            <span asp-validation-for="noticeDTO.CategoryId" class="text-danger"></span>
+                        </div>
+                    </section>
+                </div>
+
+
+
+
+
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                    <button type="button" class="btn btn-inverse">Cancel</button>
+                </div>
+
+            </form>
+        </div>
+    </div>*@
+
+
+
+<!-- Validation wizard -->
+<div class="row" id="validation">
+    <div class="col-12">
+        <div class="card wizard-content">
+            <div class="card-body">
+                <form class="validation-wizard wizard-circle" asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <input asp-for="noticeDTO.Id" class="form-control" hidden />
+                    </div>
+                    <!-- Step 1 -->
+                    <h6>Notice Message</h6>
+
+                    <section class="notice-step">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="shortDescription3">Notice Message :</label>
+                                    @*<textarea type="text" class="form-control ckeditor" asp-for="noticeDTO.Content" id="Content" rows="5"></textarea>*@
+                                    <textarea type="text" class="form-control" asp-for="noticeDTO.Content" id="Content" rows="5"></textarea>
+                                    <span asp-validation-for="noticeDTO.Content" class="text-danger"></span>
+                                    @*<textarea name="shortDescription" id="shortDescription3" rows="6" class="form-control"></textarea>*@
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Step 2 -->
+                    <h6>Schedule </h6>
+                    <section class="schedule-step">
+                        <div class="scheduler-from row">
+
+                            <div class="form-group col duration">
+                                <label class="control-label">Duration </label>
+                                <input type="number" class="form-control" asp-for="noticeDTO.Duration" id="Duration" rows="5" placeholder="60" />
+                                <span asp-validation-for="noticeDTO.Duration" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col date-time">
+                                <label class="control-label">Start</label>
+                                <input type="date" class="form-control" asp-for="noticeDTO.StartDate" id="StartDate" />
+                                <span asp-validation-for="noticeDTO.StartDate" class="text-danger"></span>
+
+                                <input type="time" class="form-control" asp-for="noticeDTO.StartTime" id="StartTime" />
+                                <span asp-validation-for="noticeDTO.StartTime" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col expire">
+                                <label class="control-label">Expire</label>
+                                <input type="checkbox" class="form-control" asp-for="noticeDTO.Expire" id="Expire" />
+                            </div>
+                            <div class="form-group col date-time">
+                                <label class="control-label">End</label>
+                                <input type="date" class="form-control" asp-for="noticeDTO.EndDate" id="EndDate" />
+                                <span asp-validation-for="noticeDTO.EndDate" class="text-danger"></span>
+
+                                <input type="time" class="form-control" asp-for="noticeDTO.EndTime" id="EndTime" />
+                                <span asp-validation-for="noticeDTO.EndTime" class="text-danger"></span>
+
+                            </div>
+                            @*<div class="form-group">
+                                    <label class="control-label">Playlist</label>
+                                    <select asp-for="noticeDTO.PlayList"
+                                            asp-items="@(new MultiSelectList(Model.playlistDropdownList,"Value","Text"))"
+                                            class="form-control">
+                                        <option>Select playlist type</option>
+                                    </select>
+                                    <span asp-validation-for="noticeDTO.PlayList" class="text-danger"></span>
+                                </div>*@
+
+                            <div class="form-group col-12 playlist">
+                                <label class="control-label">Playlist</label>
+                                <select asp-for="noticeDTO.PlayList"
+                                        asp-items="@(new SelectList(Model.playlistDropdownList,"Value","Text"))"
+                                        class="form-control" id="inlineFormCustomSelecta">
+                                    <option selected="">Select playlist type</option>
+                                </select>
+                                <span asp-validation-for="noticeDTO.PlayList" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </section>
+                    @*<section>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="wfirstName2"> First Name : <span class="danger">*</span> </label>
+                                        <input type="text" class="form-control required" id="wfirstName2" name="firstName">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="wlastName2"> Last Name : <span class="danger">*</span> </label>
+                                        <input type="text" class="form-control required" id="wlastName2" name="lastName">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="wemailAddress2"> Email Address : <span class="danger">*</span> </label>
+                                        <input type="email" class="form-control required" id="wemailAddress2" name="emailAddress">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="wphoneNumber2">Phone Number :</label>
+                                        <input type="tel" class="form-control" id="wphoneNumber2">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="wlocation2"> Select City : <span class="danger">*</span> </label>
+                                        <select class="custom-select form-control required" id="wlocation2" name="location">
+                                            <option value="">Select City</option>
+                                            <option value="India">India</option>
+                                            <option value="USA">USA</option>
+                                            <option value="Dubai">Dubai</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="wdate2">Date of Birth :</label>
+                                        <input type="date" class="form-control" id="wdate2">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>*@
+                    <!-- Step 3 -->
+                    <h6>Step 3</h6>
+                    <section class="save-step">
+                        <div class="form-group">
+                            <label asp-for="noticeDTO.Name " class="control-label"></label>
+                            <input asp-for="noticeDTO.Name" class="form-control" />
+                            <span asp-validation-for="noticeDTO.Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Category</label>
+                            <select asp-for="noticeDTO.CategoryId"
+                                    asp-items="@(new SelectList(Model.categoryDropdownList,"Value","Text"))"
+                                    class="form-control">
+                                <option selected="">Select category type</option>
+                            </select>
+                            <span asp-validation-for="noticeDTO.CategoryId" class="text-danger"></span>
+                        </div>
+                    </section>
+                    <!-- Step 4 -->
+                    @*<h6>Step 4</h6>*@
+                    @*<section>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="behName1">Behaviour :</label>
+                                        <input type="text" class="form-control required" id="behName1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="participants1">Confidance</label>
+                                        <input type="text" class="form-control required" id="participants1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="participants1">Result</label>
+                                        <select class="custom-select form-control required" id="participants1" name="location">
+                                            <option value="">Select Result</option>
+                                            <option value="Selected">Selected</option>
+                                            <option value="Rejected">Rejected</option>
+                                            <option value="Call Second-time">Call Second-time</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="decisions1">Comments</label>
+                                        <textarea name="decisions" id="decisions1" rows="4" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Rate Interviwer :</label>
+                                        <div class="c-inputs-stacked">
+                                            <label class="inline custom-control custom-checkbox block">
+                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">1 star</span>
+                                            </label>
+                                            <label class="inline custom-control custom-checkbox block">
+                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">2 star</span>
+                                            </label>
+                                            <label class="inline custom-control custom-checkbox block">
+                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">3 star</span>
+                                            </label>
+                                            <label class="inline custom-control custom-checkbox block">
+                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">4 star</span>
+                                            </label>
+                                            <label class="inline custom-control custom-checkbox block">
+                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">5 star</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>*@
+
+
+
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                        <button type="button" class="btn btn-inverse">Cancel</button>
+                    </div>
+                </form>
             </div>
-
-            <div id="example-basic">
-                <h3>Notice Message</h3>
-                <section class="notice-step">
-                    <div class="form-group">
-                        @*<label class="control-label">Content</label>*@
-                        <textarea type="text" class="form-control ckeditor" asp-for="noticeDTO.Content" id="Content" rows="5" placeholder="Content"></textarea>
-                        <span asp-validation-for="noticeDTO.Content" class="text-danger"></span>
-                    </div>
-                </section>
-                <h3>Schedule</h3>
-                <section class="schedule-step">
-                    <div class="form-group">
-                        <label class="control-label">Duration(sec)</label>
-                        <input type="number" class="form-control" asp-for="noticeDTO.Duration" id="Duration" rows="5" placeholder="60" />
-                        <span asp-validation-for="noticeDTO.Duration" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Start</label>
-                        <input type="date" class="form-control" asp-for="noticeDTO.StartDate" id="StartDate" />
-                        <span asp-validation-for="noticeDTO.StartDate" class="text-danger"></span>
-
-                        <input type="time" class="form-control" asp-for="noticeDTO.StartTime" id="StartTime" />
-                        <span asp-validation-for="noticeDTO.StartTime" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Expire</label>
-                        <input type="checkbox" class="form-control" asp-for="noticeDTO.Expire" id="Expire" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">End</label>
-                        <input type="date" class="form-control" asp-for="noticeDTO.EndDate" id="EndDate" />
-                        <span asp-validation-for="noticeDTO.EndDate" class="text-danger"></span>
-
-                        <input type="time" class="form-control" asp-for="noticeDTO.EndTime" id="EndTime" />
-                        <span asp-validation-for="noticeDTO.EndTime" class="text-danger"></span>
-
-                    </div>
-                    @*<div class="form-group">
-                <label class="control-label">Playlist</label>
-                <select asp-for="noticeDTO.PlayList"
-                        asp-items="@(new MultiSelectList(Model.playlistDropdownList,"Value","Text"))"
-                        class="form-control">
-                    <option>Select playlist type</option>
-                </select>
-                <span asp-validation-for="noticeDTO.PlayList" class="text-danger"></span>
-            </div>*@
-
-                    <div class="form-group">
-                        <label class="control-label">Playlist</label>
-                        <select asp-for="noticeDTO.PlayList"
-                                asp-items="@(new MultiSelectList(Model.playlistDropdownList,"Value","Text"))"
-                                class="custom-select form-control" id="inlineFormCustomSelect">
-                            <option selected="">Select playlist type</option>
-                        </select>
-                        <span asp-validation-for="noticeDTO.PlayList" class="text-danger"></span>
-                    </div>
-                </section>
-                <h3>Notice Info</h3>
-                <section class="save-step">
-                    <div class="form-group">
-                        <label asp-for="noticeDTO.Name " class="control-label"></label>
-                        <input asp-for="noticeDTO.Name" class="form-control" />
-                        <span asp-validation-for="noticeDTO.Name" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Category</label>
-                        <select asp-for="noticeDTO.CategoryId"
-                                asp-items="@(new SelectList(Model.categoryDropdownList,"Value","Text"))"
-                                class="form-control">
-                            <option>Select category type</option>
-                        </select>
-                        <span asp-validation-for="noticeDTO.CategoryId" class="text-danger"></span>
-                    </div>
-                </section>
-            </div>
-
-
-           
-
-
-            
-            <div class="form-actions">
-                <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                <button type="button" class="btn btn-inverse">Cancel</button>
-            </div>
-
-        </form>
+        </div>
     </div>
 </div>
+<!-- vertical wizard -->
+<script src="~/assets/plugins/jquery/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Handler for .ready() called.
+        /*$(".validation-wizard").steps({
+            headerTag: "h6"
+            , bodyTag: "section"
+            , transitionEffect: "fade"
+            , titleTemplate: '<span class="step">#index#</span> #title#'
+            , labels: {
+                finish: "Save"
+            }
+            , onStepChanging: function (event, currentIndex, newIndex) {
+                return currentIndex > newIndex || !(3 === newIndex && Number($("#age-2").val()) < 18) && (currentIndex < newIndex && (form.find(".body:eq(" + newIndex + ") label.error").remove(), form.find(".body:eq(" + newIndex + ") .error").removeClass("error")), form.validate().settings.ignore = ":disabled,:hidden", form.valid())
+            }
+            , onFinishing: function (event, currentIndex) {
+                return form.validate().settings.ignore = ":disabled", form.valid()
+            }
+            , onFinished: function (event, currentIndex) {
+                swal("Form Submitted!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.");
+            }
+        });
+
+        //$('#validation').find(".actions")
+        // document.getElementById('#validation');*/
+        document.getElementById("validation").find(".actions").innerHTML +=
+            "<h3>This is the text which has been inserted by JS</h3>";
 
 
+    });
+
+
+</script>

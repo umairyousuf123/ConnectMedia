@@ -1,125 +1,143 @@
 ﻿@model List<ConnectMedia.Common.DTO.GetRunningNoticeClassifiedDTO>
 
 
+
 @{
     ViewData["Title"] = "Preview";
+    Layout = "~/Views/Shared/_WebviewLayoutmenu.cshtml";
 }
 
-@*<div class="noticePreview">
-        <div class="bg">
-            @Html.Raw(Model.Content);
 
-            @ViewBag.Key;
+<div class="row adsView">
+    <div class="col-md-2 Weather-col">
+        <div class='box weather-wrapper'>
+            <div class='wave -one'></div>
+            <div class='wave -two'></div>
+            <div class='wave -three'></div>
+            <div class="weathercon"><i class='fa fa-sun' style='color: #d36326;'></i></div>
+            <div class="info">
+                <h2 class="location">SUNNYVILLE</h2>
+                <p class="date">MONDAY | SEP 12 | 12:34</p>
+                <h1 class="temp">25 &deg;C | 77 &deg;F</h1>
+            </div>
         </div>
-    </div>*@
-
-
-<div class="row adsView ipad">
-
-    <div class="col-md-6 noticePreviewArea">
+        <span>Enable location to see yours! :)</span>
+    </div>
+    <div class="col-md-5 logo-news">
+        <div class="logo-big">
+            <img src="~/Images/connectlogo.jpg" class="img-fluid" />
+        </div>
+        <div class="news-frame">
+            <iframe src="https://globalnews.ca/national/videos/section/canada/"></iframe>
+            @*<iframe id="newsiframe" src="https://globalnews.ca/national/videos/section/canada/" width="420" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            *@
+        </div>
+    </div>
+    <div class="col-md-5 nTCslider">
 
         @Html.Partial("GetCurrentPlaylist", Model);
-        <!--Carousel Wrapper-->
-        @*<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    @Html.Raw(Model.Content);
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="..." alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="..." alt="Third slide">
-                </div>
-            </div>
-        </div>*@
-        <!--/.Carousel Wrapper-->
-    </div>
-    @*<div class="col-md-6 adminPreviewArea">
-
-
-        </div>*@
-    <div class="col-md-6 adminPreviewArea">
-        <div class="admintopboxes">
-            <div class="currentTime">
-                <i class="fa fa-clock-o"></i>
-                <span>3:25 PM</span>
-            </div>
-            <div class="currentWeather">
-                weather
-            </div>
-            <div class="currentDate">
-                date
-            </div>
-        </div>
-        <div class="adminnotice">
-            <!--Carousel Wrapper-->
-            <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails preview-box-slider">
-                <!--Slides-->
-                <div class="carousel-inner" role="listbox">
-                    @if (ViewBag.CurrrentNotice != null || ViewBag.CurrrentNotice != "")
-                    {
-                        <div class="carousel-item active">
-                            <iframe width="560"
-                                    height="315"
-                                    src="@ViewBag.CurrrentNotice"
-                                    frameborder="0"
-                                    allowfullscreen></iframe>
+        @*@Html.Raw(Model.Content);*@
+        <!-- Column -->
+        @*<div class="card">
+                <div class="card-body p-0 collapse show text-center">
+                    <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item flex-column active">
+                                <img src="../assets/images/gallery/chair.jpg" alt="user">
+                                <h4 class="m-b-30">Brand New Chair</h4>
+                            </div>
                         </div>
-                    }
-                    <div class="carousel-item">
-                        weather api view
-                        @*<img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(121).jpg"
-            alt="Second slide">*@
-
-                        <a class="weatherwidget-io" href="https://forecast7.com/en/51d25n85d32/ontario/" data-label_1="ONTARIO" data-label_2="WEATHER" data-mode="Current" data-days="3" data-theme="original">ONTARIO WEATHER</a>
-                        <script>
-                            !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
-                        </script>
-                    </div>
-                    <div class="carousel-item">
-                        Api 3 view
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(31).jpg"
-                             alt="Third slide">
-                    </div>
-
-                    <div class="carousel-item">
-                        Api 4 view
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(31).jpg"
-                             alt="Third slide">
                     </div>
                 </div>
-                <!--/.Slides-->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-thumb" data-slide-to="0" class="active">
-                        <div class="icon">
-                            <img src="https://mdbootstrap.com/img/Photos/Others/Carousel-thumbs/img%20(88).jpg" width="100">
-                        </div>
-                        <h3 class="sm-heading">Notice</h3>
-
-                    </li>
-                    <li data-target="#carousel-thumb" data-slide-to="1">
-                        <div class="icon">
-                            <img src="https://mdbootstrap.com/img/Photos/Others/Carousel-thumbs/img%20(121).jpg" width="100">
-                        </div>
-                        <h3 class="sm-heading">Weather</h3>
-
-                    </li>
-                    <li data-target="#carousel-thumb" data-slide-to="2">
-                        <div class="icon">
-                            <img src="https://mdbootstrap.com/img/Photos/Others/Carousel-thumbs/img%20(31).jpg" width="100">
-                        </div>
-                        <h3 class="sm-heading">API 3</h3>
-                    </li>
-                    <li data-target="#carousel-thumb" data-slide-to="3">
-                        <div class="icon">
-                            <img src="https://mdbootstrap.com/img/Photos/Others/Carousel-thumbs/img%20(31).jpg" width="100">
-                        </div>
-                        <h3 class="sm-heading">API 4</h3>
-                    </li>
-                </ol>
-            </div>
-            <!--/.Carousel Wrapper-->
-        </div>
+            </div>*@
     </div>
 </div>
+
+
+<style>
+    .webview-wrapper .container-fluid {
+        padding: 0 !important;
+    }
+
+    .webview-wrapper .container-fluid {
+        padding: 0 !important;
+        min-width: 100vw;
+    }
+
+    .Weather-col .box.weather-wrapper {
+        border-radius: 0;
+        height: auto;
+    }
+
+    .Weather-col {
+        padding: 0;
+    }
+
+        .Weather-col .info {
+            left: 0;
+        }
+
+    .nTCslider {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    /*news*/
+    .logo-big {
+        position: relative;
+        z-index: 1;
+    }
+
+    .news-frame iframe {
+        width: 100%;
+        margin-top: -265px;
+        z-index: 0;
+        position: relative;
+        height: Calc(100vh - 26px );
+        /* overflow: hidden; */
+        border: 0;
+        box-shadow: none;
+    }
+
+    .nTCslider img {
+        width: 100%;
+    }
+
+    div#header-ad-wrapper,
+    header.mast li.logo.top-item,
+    .mast .mobile-toggles .social-toggle,
+    .video-promotion,
+    .video-player .socialShare,
+    div#video-navigation,
+    .footer-contain {
+        display: none !important;
+        height: 0;
+        width: 0;
+    }
+
+    .mast .mobile-toggles a {
+        min-width: 80%;
+    }
+
+        .mast .mobile-toggles a.search-toggle {
+            min-width: 20%;
+        }
+</style>
+<script>
+    $(document).ready(function () {
+        debugger;
+        jQuery("#newsiframe").contents().find("#header-ad-wrapper").remove();
+    });
+
+</script>
+
+<script type="text/javascript">
+
+    jQuery(function () {
+        var f = jQuery('iframe')
+        f.load(function () {
+            f.contents().find('.mast').hide();
+        })
+
+    })
+</script>

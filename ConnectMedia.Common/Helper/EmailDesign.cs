@@ -26,9 +26,11 @@ namespace ConnectMedia.Common.Helper
         {
             string email_body = string.Empty;
             email_body += "<div>Dear " + sendEmail.Name + " ,<br/><br/>";
-            email_body += "We have generated a notice name:" + notice.Name + ".<br/>" + notice.Content + " <br/><br/>";
-            email_body += "of the duration " + notice.Duration + "s and the Start time of notice is" + notice.StartDate + " " + notice.StartTime + " <br/><br/>";
-            email_body += "<br/><br/>We recommend that you keep your email secure and not share it with anyone. <br/><br/>";
+            //email_body +=  notice.Id;
+            email_body +=  notice.Content;
+           // email_body += "We have generated a notice name:" + notice.Name + ".<br/>" + notice.Content + " <br/><br/>";
+            //email_body += "of the duration " + notice.Duration + "s and the Start time of notice is" + notice.StartDate + " " + notice.StartTime + " <br/><br/>";
+            //email_body += "<br/><br/>We recommend that you keep your email secure and not share it with anyone. <br/><br/>";
             email_body += "Regards <br/><br/> Connect Media.";
             return email_body;
         }

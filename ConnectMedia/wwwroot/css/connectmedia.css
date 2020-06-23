@@ -469,3 +469,29 @@ canvas#pdfViewer {
 .adv-scheduler-sec .col-md-3 {
     border-right: 2px solid #dedcdc;
 }
+
+
+
+/*Webview css*/
+.webview-wrapper .adsView {
+    background-color: #1c81d9;
+    text-align: center;
+    color: #fff;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+.webview-wrapper .adminnotice .carousel-inner {
+    height: Calc( 100vh - 175px );
+}
+.webview-wrapper .noticePreviewArea {
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .webview-wrapper .noticePreviewArea .carousel-item {
+        height: Calc(100vh - 5.5rem );
+        overflow: hidden;
+    }

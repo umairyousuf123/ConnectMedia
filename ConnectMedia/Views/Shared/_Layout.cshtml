@@ -110,30 +110,51 @@
     <script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script>
     <script src="~/assets/plugins/wizard/steps.js"></script>
     <!-- wysuhtml5 Plugin JavaScript -->
-    <script src="~/assets/plugins/tinymce/tinymce.min.js"></script>
+    @*<script src="~/assets/plugins/tinymce/tinymce.min.js"></script>*@
+    <script src="~/tinymce/tinymce.min.js"></script>
+    @*<script src="https://cdn.tiny.cloud/1/ztbe8sg7d3w3sjs7p0wmklvmvgr534zqy25hj2upytnyot0t/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>*@
     <script>
         $(document).ready(function () {
+            tinymce.init({
+                selector: "textarea",
+                //theme: "modern",
+                height: 300,
+                //toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
+                plugins: [
+                    "code advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+                    "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                    "save table contextmenu directionality emoticons template paste textcolor"
+                ],
+                toolbar: 'undo redo | image code | insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons',
+                content_css: '//www.tiny.cloud/css/codepen.min.css',
 
-            if ($("#mymce").length > 0) {
-                tinymce.init({
-                    selector: "textarea#mymce",
-                    theme: "modern",
-                    height: 300,
-                    plugins: [
-                        "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
-                        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-                        "save table contextmenu directionality emoticons template paste textcolor"
-                    ],
-                    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
+                /* without images_upload_url set, Upload tab won't show up*/
+                images_upload_url: 'postAcceptor.php',
+                images_upload_base_path: 'https://localhost:44396/Documents/',
+                automatic_uploads: false,
 
-                });
-            }
-        });
+                /* we override default upload handler to simulate successful upload*/
+                //images_upload_handler: function (blobInfo, success, failure) {
+                //    setTimeout(function () {
+                //        /* no matter what you upload, we will turn it into TinyMCE logo :)*/
+                //        success('http://moxiecode.cachefly.net/tinymce/v9/images/logo.png');
+                //    }, 2000);
+                //}
+            });
+
+
+
+                //if ($("#content").length > 0) {
+
+
+                //}
+    });
     </script>
+    @*<script src="//cdn.ckeditor.com/4.14.1/full/ckeditor.js"></script>*@
     <script>
-        $('.carousel').carousel({
-            interval: 3000
-        })
+                $('.carousel').carousel({
+                            interval: 3000
+                })
     </script>
     <!--Steps JavaScript -->
     @*<script src="~/js/steps-js/jquery.steps.js"></script>*@
@@ -145,5 +166,7 @@
                 autoFocus: true
             });
         </script>*@
+
+
 </body>
 </html>
