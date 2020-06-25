@@ -341,7 +341,8 @@ namespace MaxTVMedia.Controllers
         {
             int UserId = getCurrentUserId();
             NoticeSendEmail model = _noticeServices.TeamList(UserId);
-            return PartialView("_TeamEmail", model);
+            model.NoticeId = Id;
+      return PartialView("_TeamEmail", model);
         }
 
         public IActionResult ViewPromotion()
