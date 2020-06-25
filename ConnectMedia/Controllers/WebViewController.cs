@@ -29,14 +29,14 @@ namespace ConnectMedia.Controllers
             return View();
         }
         [HttpGet]
-        public async Task<IActionResult> PreviewTv(string Key)
+        public async Task<IActionResult> PreviewTv(string Key,int userId)
         
         {
             
             NoticeDTO noticeDTO = new NoticeDTO();
             gKey = Key;
             List<GetRunningNoticeClassifiedDTO> transfer = new List<GetRunningNoticeClassifiedDTO>();
-            var data = _playlistService.GetPlayListBuilding(getCurrentUserId(),Key).Select(x => x.PlaylistId)?.ToList();
+            var data = _playlistService.GetPlayListBuilding(userId, Key).Select(x => x.PlaylistId)?.ToList();
 
             await Task.Run(() =>
             {
