@@ -355,7 +355,7 @@ namespace ConnectMedia.Repository
             try
             {
                 noticeSendEmail.EmailTeam = _db.ResgisterUser.Where(b => b.IsDel == false).Select(o => o.TeamName).Distinct().ToList();
-                noticeSendEmail.NoticeId = NoticeId;
+                
             }
             catch (Exception ex)
             {
