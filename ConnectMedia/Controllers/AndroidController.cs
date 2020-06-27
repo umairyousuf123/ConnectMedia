@@ -23,7 +23,7 @@ namespace ConnectMedia.Controllers
             this._androidService = androidService;
         }
         [HttpPost("Login")]
-        public async Task<DataTransferObject<string>> Login(LoginRequestDTO data)
+        public async Task<DataTransferObject<loginDetails>> Login(LoginRequestDTO data)
         {
             return await Task.Run(() =>
             {
