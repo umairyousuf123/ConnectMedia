@@ -151,14 +151,14 @@
 
                             </div>
                             @*<div class="form-group">
-                                    <label class="control-label">Playlist</label>
-                                    <select asp-for="noticeDTO.PlayList"
-                                            asp-items="@(new MultiSelectList(Model.playlistDropdownList,"Value","Text"))"
-                                            class="form-control">
-                                        <option>Select playlist type</option>
-                                    </select>
-                                    <span asp-validation-for="noticeDTO.PlayList" class="text-danger"></span>
-                                </div>*@
+                    <label class="control-label">Playlist</label>
+                    <select asp-for="noticeDTO.PlayList"
+                            asp-items="@(new MultiSelectList(Model.playlistDropdownList,"Value","Text"))"
+                            class="form-control">
+                        <option>Select playlist type</option>
+                    </select>
+                    <span asp-validation-for="noticeDTO.PlayList" class="text-danger"></span>
+                </div>*@
 
                             <div class="form-group col-12 playlist">
                                 <label class="control-label">Playlist</label>
@@ -172,54 +172,54 @@
                         </div>
                     </section>
                     @*<section>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="wfirstName2"> First Name : <span class="danger">*</span> </label>
-                                        <input type="text" class="form-control required" id="wfirstName2" name="firstName">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="wlastName2"> Last Name : <span class="danger">*</span> </label>
-                                        <input type="text" class="form-control required" id="wlastName2" name="lastName">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="wemailAddress2"> Email Address : <span class="danger">*</span> </label>
-                                        <input type="email" class="form-control required" id="wemailAddress2" name="emailAddress">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="wphoneNumber2">Phone Number :</label>
-                                        <input type="tel" class="form-control" id="wphoneNumber2">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="wlocation2"> Select City : <span class="danger">*</span> </label>
-                                        <select class="custom-select form-control required" id="wlocation2" name="location">
-                                            <option value="">Select City</option>
-                                            <option value="India">India</option>
-                                            <option value="USA">USA</option>
-                                            <option value="Dubai">Dubai</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="wdate2">Date of Birth :</label>
-                                        <input type="date" class="form-control" id="wdate2">
-                                    </div>
-                                </div>
-                            </div>
-                        </section>*@
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="wfirstName2"> First Name : <span class="danger">*</span> </label>
+                        <input type="text" class="form-control required" id="wfirstName2" name="firstName">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="wlastName2"> Last Name : <span class="danger">*</span> </label>
+                        <input type="text" class="form-control required" id="wlastName2" name="lastName">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="wemailAddress2"> Email Address : <span class="danger">*</span> </label>
+                        <input type="email" class="form-control required" id="wemailAddress2" name="emailAddress">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="wphoneNumber2">Phone Number :</label>
+                        <input type="tel" class="form-control" id="wphoneNumber2">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="wlocation2"> Select City : <span class="danger">*</span> </label>
+                        <select class="custom-select form-control required" id="wlocation2" name="location">
+                            <option value="">Select City</option>
+                            <option value="India">India</option>
+                            <option value="USA">USA</option>
+                            <option value="Dubai">Dubai</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="wdate2">Date of Birth :</label>
+                        <input type="date" class="form-control" id="wdate2">
+                    </div>
+                </div>
+            </div>
+        </section>*@
                     <!-- Step 3 -->
                     <h6>Step 3</h6>
                     <section class="save-step">
@@ -241,54 +241,54 @@
                     <!-- Step 4 -->
                     @*<h6>Step 4</h6>*@
                     @*<section>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="behName1">Behaviour :</label>
-                                        <input type="text" class="form-control required" id="behName1">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="participants1">Confidance</label>
-                                        <input type="text" class="form-control required" id="participants1">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="participants1">Result</label>
-                                        <select class="custom-select form-control required" id="participants1" name="location">
-                                            <option value="">Select Result</option>
-                                            <option value="Selected">Selected</option>
-                                            <option value="Rejected">Rejected</option>
-                                            <option value="Call Second-time">Call Second-time</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="decisions1">Comments</label>
-                                        <textarea name="decisions" id="decisions1" rows="4" class="form-control"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Rate Interviwer :</label>
-                                        <div class="c-inputs-stacked">
-                                            <label class="inline custom-control custom-checkbox block">
-                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">1 star</span>
-                                            </label>
-                                            <label class="inline custom-control custom-checkbox block">
-                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">2 star</span>
-                                            </label>
-                                            <label class="inline custom-control custom-checkbox block">
-                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">3 star</span>
-                                            </label>
-                                            <label class="inline custom-control custom-checkbox block">
-                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">4 star</span>
-                                            </label>
-                                            <label class="inline custom-control custom-checkbox block">
-                                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">5 star</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>*@
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="behName1">Behaviour :</label>
+                        <input type="text" class="form-control required" id="behName1">
+                    </div>
+                    <div class="form-group">
+                        <label for="participants1">Confidance</label>
+                        <input type="text" class="form-control required" id="participants1">
+                    </div>
+                    <div class="form-group">
+                        <label for="participants1">Result</label>
+                        <select class="custom-select form-control required" id="participants1" name="location">
+                            <option value="">Select Result</option>
+                            <option value="Selected">Selected</option>
+                            <option value="Rejected">Rejected</option>
+                            <option value="Call Second-time">Call Second-time</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="decisions1">Comments</label>
+                        <textarea name="decisions" id="decisions1" rows="4" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Rate Interviwer :</label>
+                        <div class="c-inputs-stacked">
+                            <label class="inline custom-control custom-checkbox block">
+                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">1 star</span>
+                            </label>
+                            <label class="inline custom-control custom-checkbox block">
+                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">2 star</span>
+                            </label>
+                            <label class="inline custom-control custom-checkbox block">
+                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">3 star</span>
+                            </label>
+                            <label class="inline custom-control custom-checkbox block">
+                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">4 star</span>
+                            </label>
+                            <label class="inline custom-control custom-checkbox block">
+                                <input type="checkbox" class="custom-control-input"> <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">5 star</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>*@
 
 
 
@@ -303,37 +303,20 @@
     </div>
 </div>
 <!-- vertical wizard -->
-<script src="~/assets/plugins/jquery/jquery.min.js"></script>
+@*<script src="~/assets/plugins/jquery/jquery.min.js"></script>*@
 
 <script>
-    $(document).ready(function () {
-        // Handler for .ready() called.
-        /*$(".validation-wizard").steps({
-            headerTag: "h6"
-            , bodyTag: "section"
-            , transitionEffect: "fade"
-            , titleTemplate: '<span class="step">#index#</span> #title#'
-            , labels: {
-                finish: "Save"
-            }
-            , onStepChanging: function (event, currentIndex, newIndex) {
-                return currentIndex > newIndex || !(3 === newIndex && Number($("#age-2").val()) < 18) && (currentIndex < newIndex && (form.find(".body:eq(" + newIndex + ") label.error").remove(), form.find(".body:eq(" + newIndex + ") .error").removeClass("error")), form.validate().settings.ignore = ":disabled,:hidden", form.valid())
-            }
-            , onFinishing: function (event, currentIndex) {
-                return form.validate().settings.ignore = ":disabled", form.valid()
-            }
-            , onFinished: function (event, currentIndex) {
-                swal("Form Submitted!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.");
-            }
-        });
-
-        //$('#validation').find(".actions")
-        // document.getElementById('#validation');*/
-        document.getElementById("validation").find(".actions").innerHTML +=
-            "<h3>This is the text which has been inserted by JS</h3>";
+    //$(document).ready(function () {
+    //    // Handler for .ready() called.
+    //    //$(".validation-wizard").steps({
+    //    //    onFinished: function (event, currentIndex) {
+                
+    //    //        swal("Form Submittedsdasdasd!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.");
+    //    //    }
+    //    //});
 
 
-    });
+    //});
 
 
 </script>
