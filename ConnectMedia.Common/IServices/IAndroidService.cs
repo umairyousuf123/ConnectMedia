@@ -9,7 +9,7 @@ namespace ConnectMedia.Common.IServices
 {
     public interface IAndroidService
     {
-        Task<DataTransferObject<string>> UserLogin(LoginRequestDTO data);
+        Task<DataTransferObject<loginDetails>> UserLogin(LoginRequestDTO data);
         List<NoticeDTO> GetPlatlistFromBuilding(string Key);
     }
 }

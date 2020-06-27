@@ -31,9 +31,9 @@ namespace ConnectMedia.Services
             this._androidRepository = androidRepository;
             this._appSetting = appSetting.Value;
         }
-        public async Task<DataTransferObject<string>> UserLogin(LoginRequestDTO data)
+        public async Task<DataTransferObject<loginDetails>> UserLogin(LoginRequestDTO data)
         {
-            DataTransferObject<string> Transfer = new DataTransferObject<string>();
+            DataTransferObject<loginDetails> Transfer = new DataTransferObject<loginDetails>();
             try
             {
                 User user = _androidRepository.UserLogin(data.Email);
@@ -48,7 +48,11 @@ namespace ConnectMedia.Services
                     new Claim ("RoleId" ,user.roleId.ToString()),
                     new Claim (ClaimTypes.Role ,_androidRepository.getRoleName(user.roleId)),
                     new Claim (ClaimTypes.Email ,user.email) };
-                    Transfer.Data = await CreateToken(claim);
+                    Transfer.Data = new loginDetails
+                    {
+                        Token = await CreateToken(claim),
+                        UserId = user.Id.ToString()
+                    }; 
                     Transfer.IsSuccess = true;
                 }
 
@@ -64,7 +68,7 @@ namespace ConnectMedia.Services
             List<NoticeDTO> notices = new List<NoticeDTO>();
             try
             {
-                notices = _androidRepository.GetPlaylistFromBuilding(Key); ;
+                notices = _androidRepository.GetPlaylistFromBuilding(Key);
             }
             catch (Exception ex)
             {
@@ -92,4 +96,7 @@ namespace ConnectMedia.Services
         }
 
     }
+
+
+   
 }
